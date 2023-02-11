@@ -1,7 +1,25 @@
 ---
+import { getCollection } from "astro:content";
 import PageLayout from "../layouts/PageLayout.astro";
+
+const projectList = await getCollection("projects");
 ---
 
 <PageLayout title="Projects">
   <h1>Projects</h1>
+  <section>
+    {
+      projectList.map((project) => (
+        <div>
+          <h2>{project.data.title}</h2>
+          <div>
+            {project.data.tags.map((tag) => (
+              <span>{tag}</span>
+            ))}
+          </div>
+          <div>{project.body}</div>
+        </div>
+      ))
+    }
+  </section>
 </PageLayout>

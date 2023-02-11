@@ -1,7 +1,23 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
+import { getCollection } from "astro:content";
+
+const blogPostList = await getCollection("blog");
 ---
 
 <PageLayout title="Home">
   <h1>Home</h1>
+  <ul>
+    {
+      blogPostList.map((post) => (
+        <li>
+          <h2>{post.data.title}</h2>
+          <time datetime={post.data.updateDate.toISOString()}>
+            {post.data.updateDate}
+          </time>
+          <p>{post.body}</p>
+        </li>
+      ))
+    }
+  </ul>
 </PageLayout>
