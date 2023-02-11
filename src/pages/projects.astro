@@ -9,6 +9,10 @@ const projects = await getCollection("projects");
 <PageLayout title="Projects">
   <h1>Projects</h1>
   <section>
-    {projects.map((project) => <ProjectCard project={project} />)}
+    {
+      projects
+        .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+        .map((project) => <ProjectCard project={project} />)
+    }
   </section>
 </PageLayout>

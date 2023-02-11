@@ -15,6 +15,7 @@ const projectCollection = defineCollection({
     image: z.string(),
     tags: z.array(z.string()),
     gitHubLink: z.string(),
+    date: z.string().transform((str) => new Date(str)),
     deploy: z.string(),
   }),
 });

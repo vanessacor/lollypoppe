@@ -9,9 +9,11 @@ const blogPostList = await getCollection("blog");
   <h1>Home</h1>
   <div>
     {
-      blogPostList.map((post) => (
-        <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
-      ))
+      blogPostList
+        .sort(
+          (a, b) => b.data.updateDate.getTime() - a.data.updateDate.getTime()
+        )
+        .map((post) => <a href={`/blog/${post.slug}/`}>{post.data.title}</a>)
     }
   </div>
 </PageLayout>
