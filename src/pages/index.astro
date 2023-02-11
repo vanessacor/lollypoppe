@@ -7,17 +7,11 @@ const blogPostList = await getCollection("blog");
 
 <PageLayout title="Home">
   <h1>Home</h1>
-  <ul>
+  <div>
     {
       blogPostList.map((post) => (
-        <li>
-          <h2>{post.data.title}</h2>
-          <time datetime={post.data.updateDate.toISOString()}>
-            {post.data.updateDate}
-          </time>
-          <p>{post.body}</p>
-        </li>
+        <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
       ))
     }
-  </ul>
+  </div>
 </PageLayout>
