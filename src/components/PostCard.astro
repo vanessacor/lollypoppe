@@ -1,0 +1,14 @@
+---
+const { title, date, slug, description } = Astro.props;
+
+const link = `/blog/${slug}`;
+---
+
+<article>
+  <h2>
+    <a href={link}>{title}</a>
+  </h2>
+  <time>{date.toDateString()}</time>
+  <p>{description}</p>
+  <span><a href={link}>read more</a></span>
+</article>

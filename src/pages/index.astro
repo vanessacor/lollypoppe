@@ -1,19 +1,7 @@
 ---
 import PageLayout from "../layouts/PageLayout.astro";
-import { getCollection } from "astro:content";
-
-const blogPostList = await getCollection("blog");
 ---
 
 <PageLayout title="Home">
   <h1>Home</h1>
-  <div>
-    {
-      blogPostList
-        .sort(
-          (a, b) => b.data.updateDate.getTime() - a.data.updateDate.getTime()
-        )
-        .map((post) => <a href={`/blog/${post.slug}/`}>{post.data.title}</a>)
-    }
-  </div>
 </PageLayout>
