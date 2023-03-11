@@ -1,0 +1,49 @@
+h1 {
+  font-size: clamp(3rem, 4vw, 3.5rem);
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 4vw, 1.64rem);
+  margin-bottom: 20px;
+  font-family: var(--text-font);
+  font-weight: lighter;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  margin-bottom: 10px;
+}
+
+h4 {
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  margin-bottom: 5px;
+  padding-top: 15px;
+  font-family: var(--text-font);
+  font-weight: 500;
+  text-decoration: underline solid var(--accent-color);
+}
+
+p {
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  margin-bottom: 10px;
+  font-family: var(--text-font);
+  font-weight: 300;
+}
+
+li {
+ 
+  font-family: var(--text-font);
+}
+
+a {
+  color: var(--accent-color-dark);
+}
+
+code {
+ 
+  padding: 3px;
+  background-color: #e1e1e1;
+  font-family: "Courier New", Courier, monospace;
+}
