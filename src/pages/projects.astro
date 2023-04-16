@@ -7,12 +7,24 @@ const projects = await getCollection("projects");
 ---
 
 <PageLayout title="Projects">
-  <h1>Projects</h1>
+  <h2>Projects</h2>
   <section>
     {
       projects
         .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-        .map((project) => <ProjectCard project={project} />)
+        .map((project) => (
+          <>
+            <ProjectCard project={project} />
+            <hr />
+          </>
+        ))
     }
   </section>
 </PageLayout>
+<style scoped>
+  hr {
+    height: 4px;
+    background: var(--highlight-color);
+    border: none;
+  }
+</style>

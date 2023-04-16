@@ -1,19 +1,39 @@
 ---
+const { pathname } = Astro.url;
+const currentUrl = pathname.replace(/^\/|\/$/g, "");
 ---
 
-<nav>
-  <ul>
-    <li>
-      <a href="/">Home</a>
-    </li>
-    <li>
-      <a href="/about">About</a>
-    </li>
-    <li>
-      <a href="/projects">Projects</a>
-    </li>
-    <li>
-      <a href="/work">Work</a>
-    </li>
-  </ul>
+<nav class="nav-items">
+  <a class:list={[currentUrl === "" ? "active" : "", "link"]} href="/"> Home</a>
+
+  <a
+    class:list={[currentUrl === "about" ? "active" : "", "link"]}
+    href="/about"
+  >
+    About
+  </a>
+
+  <a
+    class:list={[currentUrl === "projects" ? "active" : "", "link"]}
+    href="/projects">Projects</a
+  >
+
+  <a class:list={[currentUrl === "work" ? "active" : "", "link"]} href="/work"
+    >Work</a
+  >
 </nav>
+<style scoped>
+  .nav-items {
+    display: flex;
+    gap: 16px;
+    margin-right: 40px;
+  }
+  .link {
+    color: var(--highlight-color);
+    font-family: var(--text-font);
+    padding-bottom: 10px;
+  }
+  .active {
+    border-bottom: 5px solid var(--highlight-color);
+  }
+</style>
