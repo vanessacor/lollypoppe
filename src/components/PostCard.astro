@@ -2,13 +2,42 @@
 const { title, date, slug, description } = Astro.props;
 
 const link = `/blog/${slug}`;
+
+const postDate = date.toLocaleDateString("en-uk", {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+});
 ---
 
-<article>
-  <h2>
-    <a href={link}>{title}</a>
-  </h2>
-  <time>{date.toDateString()}</time>
-  <p>{description}</p>
-  <span><a href={link}>read more</a></span>
+<article class="post-card">
+  <header>
+    <h2>
+      <a href={link}>{title}</a>
+    </h2>
+    <time>{postDate}</time>
+  </header>
+  <p class="description">{description}</p>
+  <a href={link}>read more</a>
 </article>
+
+<style scoped>
+  article {
+    margin-block-end: 20px;
+  }
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  time {
+    color: var(--base-color-grey);
+    text-align: end;
+  }
+
+  .description {
+    padding-top: 16px;
+    margin-block-end: 12px;
+  }
+</style>

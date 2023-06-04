@@ -8,7 +8,6 @@ const blogPostList = postList.filter((post) => !post.data.draft);
 ---
 
 <PageLayout title="Blog">
-  <h1>Blog</h1>
   <div>
     {
       blogPostList
@@ -18,14 +17,25 @@ const blogPostList = postList.filter((post) => !post.data.draft);
         .map((post) => {
           const { title, description, updateDate } = post.data;
           return (
-            <PostCard
-              title={title}
-              date={updateDate}
-              description={description}
-              slug={post.slug}
-            />
+            <>
+              <hr class="horizontal-line" />
+              <PostCard
+                title={title}
+                date={updateDate}
+                description={description}
+                slug={post.slug}
+              />
+            </>
           );
         })
     }
   </div>
 </PageLayout>
+<style scoped>
+  .horizontal-line {
+    height: 2px;
+    background-color: var(--highlight-color);
+    border: none;
+    margin-block-end: 40px;
+  }
+</style>

@@ -7,7 +7,6 @@ h1 {
 
 h2 {
   font-size: clamp(1.5rem, 4vw, 1.64rem);
-  margin-bottom: 20px;
   font-family: var(--text-font);
   font-weight: lighter;
 }
@@ -19,8 +18,6 @@ h3 {
 
 h4 {
   font-size: clamp(1.25rem, 4vw, 1.5rem);
-  margin-bottom: 5px;
-  padding-top: 15px;
   font-family: var(--text-font);
   font-weight: 500;
   text-decoration: underline solid var(--accent-color);
@@ -28,11 +25,16 @@ h4 {
 
 p {
   font-size: clamp(1rem, 4vw, 1.25rem);
-  margin-bottom: 10px;
   font-family: var(--text-font);
   font-weight: 300;
 }
 
+time {
+  font-size: clamp(.75rem, 4vw, 1rem);
+  font-family: var(--text-font);
+  font-weight: bold;
+  font-style: italic;
+}
 li {
  
   font-family: var(--text-font);
