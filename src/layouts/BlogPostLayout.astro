@@ -1,27 +1,31 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import Header from "../components/Header.astro";
+import PageLayout from "./PageLayout.astro";
+import HorizontalLine from "../components/horizontal-line.astro";
 type Props = CollectionEntry<"blog">["data"];
-const { title } = Astro.props;
+const { title, updateDate } = Astro.props;
+
+const postDate = updateDate.toLocaleDateString("en-uk", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
-
-  <body>
-    <Header />
-    <main>
-      <article>
-        <h1 class="title">{title}</h1>
-        <hr />
-        <slot />
-      </article>
-    </main>
-  </body>
-</html>
+<PageLayout>
+  <article>
+    <header class="post-header">
+      <h1 class="title">{title}</h1>
+      <HorizontalLine />
+      <time>
+        {postDate}
+      </time>
+    </header>
+    <slot />
+  </article>
+</PageLayout>
+<style scoped>
+  .post-header {
+    margin-block-end: 24px;
+  }
+</style>
