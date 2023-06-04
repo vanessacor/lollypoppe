@@ -2,6 +2,7 @@
 import PageLayout from "../layouts/PageLayout.astro";
 import { getCollection } from "astro:content";
 import PostCard from "../components/PostCard.astro";
+import HorizontalLine from "../components/horizontal-line.astro";
 
 const postList = await getCollection("blog");
 const blogPostList = postList.filter((post) => !post.data.draft);
@@ -18,7 +19,7 @@ const blogPostList = postList.filter((post) => !post.data.draft);
           const { title, description, updateDate } = post.data;
           return (
             <>
-              <hr class="horizontal-line" />
+              <HorizontalLine />
               <PostCard
                 title={title}
                 date={updateDate}
@@ -31,11 +32,3 @@ const blogPostList = postList.filter((post) => !post.data.draft);
     }
   </div>
 </PageLayout>
-<style scoped>
-  .horizontal-line {
-    height: 2px;
-    background-color: var(--highlight-color);
-    border: none;
-    margin-block-end: 40px;
-  }
-</style>
