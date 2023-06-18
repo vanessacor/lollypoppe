@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from "astro:content";
+import HorizontalLine from "./horizontalLine.astro";
+interface Props {
+  item: CollectionEntry<"glossary">;
+}
+
+const { item } = Astro.props;
+const { Content } = await item.render();
+const title = item.data.term.replaceAll("-", " ");
+---
+
+<li class="item">
+  <h2 id={item.data.term} class="title">{title}</h2>
+  <div class="content">
+    <Content />
+  </div>
+  <HorizontalLine class="hr" />
+</li>
+<style scoped>
+  .title {
+    text-transform: capitalize;
+    font-weight: bold;
+    margin-block-end: 0.5em;
+  }
+  .content {
+    margin-block-end: 1.5em;
+  }
+</style>

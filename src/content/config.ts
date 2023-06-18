@@ -26,3 +26,9 @@ export const collections = {
   blog: blogCollection,
   projects: projectCollection,
 };
+
+export const glossaryCollection = defineCollection({
+  schema: z.object({
+    term: z.string(),
+  }),
+});
