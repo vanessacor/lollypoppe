@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import ProjectCard from "../components/ProjectCard.astro";
 import PageLayout from "../layouts/PageLayout.astro";
+import HorizontalLine from "../components/horizontalLine.astro";
 
 const projects = await getCollection("projects");
 ---
@@ -15,16 +16,10 @@ const projects = await getCollection("projects");
         .map((project) => (
           <>
             <ProjectCard project={project} />
-            <hr />
+            <HorizontalLine />
           </>
         ))
     }
   </section>
 </PageLayout>
-<style scoped>
-  hr {
-    height: 4px;
-    background: var(--highlight-color);
-    border: none;
-  }
-</style>
+<style scoped></style>

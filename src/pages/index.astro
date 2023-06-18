@@ -2,7 +2,7 @@
 import PageLayout from "../layouts/PageLayout.astro";
 import { getCollection } from "astro:content";
 import PostCard from "../components/PostCard.astro";
-import HorizontalLine from "../components/horizontal-line.astro";
+import HorizontalLine from "../components/horizontalLine.astro";
 
 const postList = await getCollection("blog");
 const blogPostList = postList.filter((post) => !post.data.draft);
