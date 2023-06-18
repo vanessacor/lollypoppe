@@ -1,5 +1,7 @@
 ---
-const { title, date, slug, description } = Astro.props;
+import TagList from "./TagList.astro";
+
+const { title, date, slug, description, tags } = Astro.props;
 
 const link = `/blog/${slug}`;
 
@@ -19,6 +21,7 @@ const postDate = date.toLocaleDateString("en-uk", {
   </header>
   <p class="description">{description}</p>
   <a href={link}>read more</a>
+  <TagList tags={tags} />
 </article>
 
 <style scoped>

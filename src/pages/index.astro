@@ -16,7 +16,7 @@ const blogPostList = postList.filter((post) => !post.data.draft);
           (a, b) => b.data.updateDate.getTime() - a.data.updateDate.getTime()
         )
         .map((post) => {
-          const { title, description, updateDate } = post.data;
+          const { title, description, updateDate, tags } = post.data;
           return (
             <>
               <HorizontalLine />
@@ -24,6 +24,7 @@ const blogPostList = postList.filter((post) => !post.data.draft);
                 title={title}
                 date={updateDate}
                 description={description}
+                tags={tags}
                 slug={post.slug}
               />
             </>
