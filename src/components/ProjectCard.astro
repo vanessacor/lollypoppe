@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import TagList from "./TagList.astro";
 interface Props {
   project: CollectionEntry<"projects">;
 }
@@ -8,7 +9,7 @@ const { project } = Astro.props;
 const { Content } = await project.render();
 ---
 
-<article>
+<article class="project">
   <h2>{project.data.title}</h2>
   <a href={project.data.link}>
     <img src={project.data.image} />
@@ -18,7 +19,5 @@ const { Content } = await project.render();
     <a href={project.data.gitHubLink}>View Code</a>
   </div>
   <Content />
-  <ul>
-    {project.data.tags.map((tag) => <li>{tag}</li>)}
-  </ul>
+  <TagList tags={project.data.tags} />
 </article>
