@@ -3,46 +3,38 @@ import PageLayout from "../layouts/PageLayout.astro";
 ---
 
 <PageLayout title="About">
-  <div class="about">
-    <img src="./assets/profile.jpg" alt="my profile" />
-    <div>
-      <p>
-        I am a frontend developer. In my previous life, I worked as a
-        psychologist and a support worker in social services and education
-        settings.
-      </p>
-
-      <p>
-        This is my personal digital garden and all opinions shared here are my
-        own and do not represent the company where I currently work.
-      </p>
-
-      <p>
-        Here, I write technical content to consolidate my understanding of
-        things, but I also write about things that make me happy, such as
-        skating, surfing, music, food, and places.
-      </p>
-    </div>
-  </div>
+  <section class="about">
+    <p>
+      Hey there! Welcome to my website. I'm a front-end developer by trade, but
+      life has taken me on quite the journey. In a past life, I found myself
+      immersed in the fields of psychology, social services, and education where
+      I worked as a psychologist and a support worker. Talk about diverse
+      experiences!
+    </p>
+    <p>
+      Here in my personal 🌱 digital garden, I have the freedom to express
+      myself and share my thoughts. It's important to note that everything I
+      write here is purely my own opinion and doesn't reflect the views of the
+      company I currently work for. It's a place where I can consolidate my
+      understanding of all things technical through my content.
+    </p>
+    <p>
+      But don't think it's all serious coding and programming talk! I believe in
+      finding joy in the little things, so you'll also find me writing about the
+      things that bring a smile to my face. From the thrill of skateboarding and
+      surfing to the soul-stirring power of music and books, and even maybe some
+      explorations on food and places. Ocassionally you might also find some
+      introspections notes about life, work and the world around me.
+    </p>
+    <p>
+      It's a mix of the technical and the personal, because life is all about
+      balance, right?
+    </p>
+  </section>
 </PageLayout>
 
-<style>
-  .about {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2em;
-  }
-  @media (min-width: 840px) {
-    .about {
-      flex-direction: row;
-      align-items: initial;
-    }
-  }
-
-  img {
-    border-radius: 50%;
-    width: 12em;
-    height: 12em;
+<style scoped>
+  .about > * {
+    margin-block-end: 2em;
   }
 </style>
