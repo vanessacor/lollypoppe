@@ -20,8 +20,11 @@ const postDate = date.toLocaleDateString("en-uk", {
     <time>{postDate}</time>
   </header>
   <p class="description">{description}</p>
-  <a href={link}>read more</a>
-  <TagList tags={tags} />
+  <footer>
+    <a href={link}>Read more <span class="link">&#8594</span></a>
+
+    <TagList tags={tags} />
+  </footer>
 </article>
 
 <style scoped>
@@ -42,5 +45,23 @@ const postDate = date.toLocaleDateString("en-uk", {
   .description {
     padding-top: 16px;
     margin-block-end: 12px;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-small);
+  }
+
+  a,
+  span {
+    font-weight: bold;
+  }
+
+  a .link {
+    visibility: hidden;
+  }
+  a:hover .link {
+    visibility: visible;
   }
 </style>

@@ -23,7 +23,7 @@ h4 {
   text-decoration: underline solid var(--accent-color);
 }
 
-p {
+p, span {
   font-size: clamp(1rem, 4vw, 1.25rem);
   font-family: var(--text-font);
   font-weight: 300;
