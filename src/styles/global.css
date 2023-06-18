@@ -1,0 +1,8 @@
+p {
+  margin-block-end: var(--space-large);
+}
+
+ul {
+  margin-inline-start: var(--space-small);
+}
+

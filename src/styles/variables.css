@@ -1,4 +1,11 @@
 :root {
+
+  --space-extra-small: 0.5em;
+  --space-small: 1em;
+  --space-medium: 1.5em;
+  --space-large: 2em;
+  --space-extra-large: 2.5em;
+
   --base-color-light: #fbf7f4;
   --base-color-dark: #292929;
   --base-color-grey: #777777;
