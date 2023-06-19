@@ -15,7 +15,9 @@ const postDate = date.toLocaleDateString("en-uk", {
 <article class="post-card">
   <header>
     <h2>
-      <a href={link}>{title}</a>
+      <a class="title" href={link}>
+        {title}
+      </a>
     </h2>
     <time>{postDate}</time>
   </header>
@@ -35,6 +37,10 @@ const postDate = date.toLocaleDateString("en-uk", {
     display: flex;
     flex-direction: column;
     gap: 4px;
+  }
+
+  .title:hover {
+    color: var(--base-color-grey);
   }
 
   time {
