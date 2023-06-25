@@ -9,6 +9,7 @@ const blogPostList = postList.filter((post) => !post.data.draft);
 ---
 
 <PageLayout title="Blog">
+  <h2 class="header">Hey there! Welcome to digital garden 🌱</h2>
   <div>
     {
       blogPostList
@@ -19,7 +20,6 @@ const blogPostList = postList.filter((post) => !post.data.draft);
           const { title, description, updateDate, tags } = post.data;
           return (
             <>
-              <HorizontalLine />
               <PostCard
                 title={title}
                 date={updateDate}
@@ -33,3 +33,8 @@ const blogPostList = postList.filter((post) => !post.data.draft);
     }
   </div>
 </PageLayout>
+<style>
+  .header {
+    margin-block-end: var(--space-extra-large);
+  }
+</style>

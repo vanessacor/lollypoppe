@@ -1,5 +1,6 @@
 ---
 import TagList from "./TagList.astro";
+import HorizontalLine from "./horizontalLine.astro";
 
 const { title, date, slug, description, tags } = Astro.props;
 
@@ -23,40 +24,46 @@ const postDate = date.toLocaleDateString("en-uk", {
   </header>
   <p class="description">{description}</p>
   <footer>
-    <a href={link}>Read more <span class="link">&#8594</span></a>
+    <p>
+      <a href={link}>Read more</a>
+      <span class="link">&#8594</span>
+    </p>
 
     <TagList tags={tags} />
   </footer>
+  <HorizontalLine />
 </article>
 
 <style scoped>
   article {
-    margin-block-end: 20px;
+    margin-block-end: var(--space-large);
   }
+
   header {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-  }
-
-  .title:hover {
-    color: var(--base-color-grey);
+    padding-block-start: var(--space-medium);
+    gap: var(--space-small);
   }
 
   time {
     color: var(--base-color-grey);
-    text-align: end;
   }
 
   .description {
-    padding-top: 16px;
-    margin-block-end: 12px;
+    padding-top: var(--space-medium);
+    margin-block-end: var(--space-small);
   }
 
   footer {
     display: flex;
     flex-direction: column;
     gap: var(--space-small);
+    margin-block-end: var(--space-large);
+  }
+
+  span {
+    font-size: var(--font-size-2);
   }
 
   a,
@@ -64,10 +71,15 @@ const postDate = date.toLocaleDateString("en-uk", {
     font-weight: bold;
   }
 
-  a .link {
+  a:hover {
+    color: var(--base-color-grey);
+  }
+
+  p .link {
     visibility: hidden;
   }
-  a:hover .link {
+
+  p:hover .link {
     visibility: visible;
   }
 </style>

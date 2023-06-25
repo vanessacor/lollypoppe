@@ -1,6 +1,8 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import TagList from "./TagList.astro";
+import HorizontalLine from "./horizontalLine.astro";
+import Markdown from "./markdown.astro";
 interface Props {
   project: CollectionEntry<"projects">;
 }
@@ -10,14 +12,65 @@ const { Content } = await project.render();
 ---
 
 <article class="project">
-  <h2>{project.data.title}</h2>
-  <a href={project.data.link}>
-    <img src={project.data.image} />
-  </a>
-  <div>
-    <a href={project.data.link}>Deploy in {project.data.deploy}</a>
-    <a href={project.data.gitHubLink}>View Code</a>
-  </div>
-  <Content />
-  <TagList tags={project.data.tags} />
+  <header>
+    <h2 class="title">
+      <a href={project.data.link}>
+        {project.data.title}
+      </a>
+    </h2>
+    <a class="image" href={project.data.link}>
+      <img src={project.data.image} />
+    </a>
+    <div class="links">
+      <a href={project.data.link}>Deploy in {project.data.deploy}</a>
+      <a href={project.data.gitHubLink}>View Code</a>
+    </div>
+  </header>
+
+  <Markdown>
+    <Content />
+  </Markdown>
+
+  <footer>
+    <TagList tags={project.data.tags} />
+  </footer>
+
+  <HorizontalLine />
 </article>
+
+<style>
+  article {
+    margin-block-end: var(--space-extra-large);
+  }
+
+  header {
+    padding-block-start: var(--space-extra-large);
+    margin-block-end: var(--space-extra-large);
+    max-width: 80%;
+  }
+
+  .title {
+    color: var(--accent-color-dark);
+    font-weight: bold;
+    margin-block-end: var(--space-large);
+  }
+
+  a:hover {
+    color: var(--base-color-grey);
+  }
+
+  .image:hover {
+    opacity: 0.5;
+  }
+
+  .links {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-size-3);
+  }
+
+  footer {
+    padding-block-start: var(--space-large);
+    margin-block-end: var(--space-large);
+  }
+</style>
