@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import PageLayout from "./PageLayout.astro";
 import HorizontalLine from "../components/horizontalLine.astro";
+import Markdown from "../components/markdown.astro";
 type Props = CollectionEntry<"blog">["data"];
 const { title, updateDate } = Astro.props;
 
@@ -21,11 +22,14 @@ const postDate = updateDate.toLocaleDateString("en-uk", {
         {postDate}
       </time>
     </header>
-    <slot />
+    <Markdown>
+      <slot />
+    </Markdown>
   </article>
 </PageLayout>
-<style scoped>
+
+<style>
   .post-header {
-    margin-block-end: 24px;
+    margin-block-end: var(--space-large);
   }
 </style>

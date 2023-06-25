@@ -1,0 +1,17 @@
+<div class="markdown">
+  <slot />
+</div>
+<style is:global>
+  .markdown p {
+    margin-block-end: var(--space-large);
+    line-height: 2em;
+  }
+
+  .markdown ul {
+    margin-inline-start: var(--space-small);
+  }
+
+  .markdown li > p {
+    margin-block-end: var(--space-small);
+  }
+</style>
