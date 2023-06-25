@@ -4,7 +4,8 @@
   --space-small: 1em;
   --space-medium: 1.5em;
   --space-large: 2em;
-  --space-extra-large: 2.5em;
+  --space-extra-large: 3em;
+  --space-xxl: 5em;
 
   --base-color-light: #fbf7f4;
   --base-color-dark: #292929;
@@ -15,4 +16,10 @@
   
   --title-font: "Montserrat", sans-serif;
   --text-font: "IBM Plex Serif", serif;
+
+  --font-size-0: clamp(3rem, 4vw, 3.5rem);
+  --font-size-1: clamp(1.5rem, 4vw, 1.64rem);
+  --font-size-2: clamp(1.25rem, 4vw, 1.5rem);
+  --font-size-3: clamp(1rem, 4vw, 1.25rem);
+  --font-size-4: clamp(.75rem, 4vw, 1rem);
 }

@@ -1,36 +1,37 @@
 h1 {
   font-family: var(--title-font);
-  font-size: clamp(3rem, 4vw, 3.5rem);
+  font-size: var(--font-size-0);
   font-weight: 300;
   text-transform: uppercase;
 }
 
 h2 {
-  font-size: clamp(1.5rem, 4vw, 1.64rem);
+  font-size: var(--font-size-1);
   font-family: var(--text-font);
   font-weight: lighter;
 }
 
 h3 {
-  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  font-size: var(--font-size-2);
   margin-bottom: 10px;
 }
 
 h4 {
-  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  font-size: var(--font-size-2);
   font-family: var(--text-font);
   font-weight: 500;
   text-decoration: underline solid var(--accent-color);
 }
 
 p, span {
-  font-size: clamp(1rem, 4vw, 1.25rem);
+  font-size: var(--font-size-3);
   font-family: var(--text-font);
   font-weight: 300;
+  line-height: 2em;
 }
 
 time {
-  font-size: clamp(.75rem, 4vw, 1rem);
+  font-size: var(--font-size-4);
   font-family: var(--text-font);
   font-weight: bold;
   font-style: italic;
