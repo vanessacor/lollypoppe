@@ -39,7 +39,6 @@ export function externalLinks(): RemarkPlugin {
       ) {
         const url = node.properties.href;
         const label = toString(node);
-        console.log(node);
         const isAbsolute = /^[a-z]+:/.test(url) || url.startsWith("//");
         if (isAbsolute) {
           node.properties.rel = "nooener";
