@@ -1,0 +1,7 @@
+a[data-external]::after {
+  display: inline-block;
+  margin-left: var(--space-extra-small);
+  content: url('../../public/assets/box-arrow-up-left.svg');
+  transform: rotate(90deg) translateY(0.1em);
+  transition: all 0.1s;
+}
