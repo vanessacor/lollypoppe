@@ -2,14 +2,13 @@
 import PageLayout from "../layouts/PageLayout.astro";
 import { getCollection } from "astro:content";
 import PostCard from "../components/PostCard.astro";
-import HorizontalLine from "../components/horizontalLine.astro";
 
 const postList = await getCollection("blog");
 const blogPostList = postList.filter((post) => !post.data.draft);
 ---
 
 <PageLayout title="Blog">
-  <h2 class="header">Hey there! Welcome to digital garden 🌱</h2>
+  <h2 class="header">Hey there! Welcome to my digital garden 🌱</h2>
   <div>
     {
       blogPostList
