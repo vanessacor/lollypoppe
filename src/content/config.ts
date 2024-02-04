@@ -32,3 +32,13 @@ export const glossaryCollection = defineCollection({
     term: z.string(),
   }),
 });
+
+const workCollection = defineCollection({
+  schema: z.object({
+    id: z.string(),
+    company: z.string(),
+    jobTitle: z.string(),
+    location: z.string(),
+    dates: z.array(z.string()),
+  }),
+});
