@@ -3,7 +3,14 @@ import Navigation from "./Navigation.astro";
 ---
 
 <header class="container">
-  <h1>Vanessa Poppe</h1>
+  <h1>LollyPoppe</h1>
   <Navigation />
 </header>
-<style scoped></style>
+<style scoped>
+  .container {
+  @media (min-width: 600px) {
+    display: flex;
+    justify-content: space-between;
+  }
+  }
+</style>

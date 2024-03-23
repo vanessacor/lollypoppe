@@ -23,4 +23,14 @@ const currentUrl = pathname.replace(/^\/|\/$/g, "");
     Glossary
   </a>
 </nav>
-<style scoped></style>
+<style scoped>
+  .nav-items {
+    padding: var(--space-medium) 0;
+    display: flex;
+    gap: var(--space-small)
+  }
+  .active {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+</style>
