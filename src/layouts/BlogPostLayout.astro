@@ -1,10 +1,11 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import PageLayout from "./PageLayout.astro";
-import HorizontalLine from "../components/horizontalLine.astro";
 import Markdown from "../components/markdown.astro";
+import TagList from "../components/TagList.astro";
+
 type Props = CollectionEntry<"blog">["data"];
-const { title, updateDate } = Astro.props;
+const { title, updateDate, tags } = Astro.props;
 
 const postDate = updateDate.toLocaleDateString("en-uk", {
   day: "numeric",
@@ -17,10 +18,10 @@ const postDate = updateDate.toLocaleDateString("en-uk", {
   <article>
     <header class="post-header">
       <h1 class="title">{title}</h1>
-      <HorizontalLine />
       <time>
         {postDate}
       </time>
+      <TagList tags={tags} />
     </header>
     <Markdown>
       <slot />
