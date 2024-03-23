@@ -7,8 +7,8 @@
   --space-extra-large: 3em;
   --space-xxl: 5em;
   
-  --title-font: "Montserrat", sans-serif;
-  --text-font: "IBM Plex Serif", serif;
+  --title-font: "Montserrat Variable", sans-serif;
+  --text-font: "IBM Plex Mono", monospace;
 
   --font-size-0: clamp(3rem, 4vw, 3.5rem);
   --font-size-1: clamp(1.5rem, 4vw, 1.64rem);
@@ -22,7 +22,6 @@
   --highligth-color: #faed26;
   --highligth-secondary-color: #ffd54d;
   --highligth-tertiary-color: #ff4242;
-
 
 }
 

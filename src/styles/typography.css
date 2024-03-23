@@ -1,8 +1,7 @@
 h1 {
   font-family: var(--title-font);
   font-size: var(--font-size-0);
-  font-weight: 300;
-  text-transform: uppercase;
+  font-weight: lighter;
 }
 
 h2 {
@@ -43,12 +42,6 @@ li {
 
 a {
   color: var(--accent-color-dark);
+  font-family: var(--text-font);
 }
 
-code {
-  font-family: "Courier New", Courier, monospace;
-}
-
-pre {
-  padding: 12px;
-}
