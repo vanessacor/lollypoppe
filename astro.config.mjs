@@ -8,7 +8,9 @@ export default defineConfig({
   integrations: [mdx(), sitemap()],
   markdown: {
     shikiConfig: {
-      theme: "one-dark-pro",
+      theme: "rose-pine-dawn",
+      langs: ["js", "ts", "html", "bash", "json"],
+      wrap: true,
     },
     rehypePlugins,
   },
