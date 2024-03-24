@@ -3,14 +3,22 @@ import Navigation from "./Navigation.astro";
 ---
 
 <header class="container">
-  <h1>LollyPoppe</h1>
+  <div class="title">
+    <h1>LollyPoppe</h1>
+    <img src="/assets/rainbow.svg">
+  </div>
   <Navigation />
 </header>
 <style scoped>
   .container {
-  @media (min-width: 600px) {
-    display: flex;
-    justify-content: space-between;
+    @media (min-width: 600px) {
+      display: flex;
+      justify-content: space-between;
+    }
   }
+
+  .title{
+    display: flex;
+    gap: var(--space-small);
   }
 </style>
