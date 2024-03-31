@@ -10,3 +10,22 @@ body {
   background-color: var(--background-color);
   color: var(--primary-font-color);
 }
+
+.container {
+  padding-inline: var(--space-medium);
+}
+
+@media (min-width: 600px){
+  .container {
+    padding-inline: var(--space-extra-large);
+  }
+}
+
+@media (min-width: 900px){
+  .container {
+    max-width: 85vw; 
+    margin-inline: auto;
+    width: min(90vw, 85rem);
+  }
+
+}

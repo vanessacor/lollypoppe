@@ -2,7 +2,7 @@
 import Navigation from "./Navigation.astro";
 ---
 
-<header class="container">
+<header class="header container">
   <div class="title">
     <h1>LollyPoppe</h1>
     <img src="/assets/rainbow.svg">
@@ -10,7 +10,9 @@ import Navigation from "./Navigation.astro";
   <Navigation />
 </header>
 <style scoped>
-  .container {
+  .header {
+    padding-top: var(--space-medium);
+    padding-bottom: var(--space-medium);
     @media (min-width: 600px) {
       display: flex;
       justify-content: space-between;
