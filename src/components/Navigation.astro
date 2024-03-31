@@ -1,6 +1,12 @@
 ---
+import { getTags } from "../helpers/get-tags";
+
 const { pathname } = Astro.url;
 const currentUrl = pathname.replace(/^\/|\/$/g, "");
+
+const tags = await getTags()
+
+const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
 ---
 
 <nav class="nav-items">
@@ -22,7 +28,44 @@ const currentUrl = pathname.replace(/^\/|\/$/g, "");
   >
     Glossary
   </a>
+ <button class="tag-button" >Tags</button> 
+ <div id="tags-modal">
+  <header class="modal-header">
+    <button class="close-button">X</button>
+  </header>
+  <p>tags</p>
+  {
+    tagsElement.map((tag)=> {
+     const  {label, url} = tag
+      
+     return(<li><a href={url}>{label}
+      </a></li>)
+      
+    })
+  }
+
+ </div>
 </nav>
+<script>
+
+  const tagsButton = document.querySelector('.tag-button');
+  if(tagsButton) tagsButton.addEventListener('click', () => {
+    showTags()
+  });
+
+  const closeButton = document.querySelector('.close-button');
+  if(closeButton) closeButton.addEventListener('click', () => {
+    showTags()
+  });
+
+  const showTags = () => {
+    const modal = document.getElementById('tags-modal')
+    if(modal) {
+      modal?.style.display === 'none' ? modal.style.display = 'block' : modal.style.display = 'none'
+    }
+  }
+ 
+</script>
 <style scoped>
   .nav-items {
     padding: var(--space-medium) 0;
@@ -37,4 +80,35 @@ const currentUrl = pathname.replace(/^\/|\/$/g, "");
     border-bottom: 2px solid var(--highligth-tertiary-color);
     font-weight: bold;
   }
+
+  .tag-button {
+    border: none;
+    background-color: transparent;
+    color: var(--accent-color-dark);
+    font-family: var(--text-font);
+    font-size: var(--font-size-3);
+    padding: 0;
+
+    @media(min-width: 672px) {
+      display: none;
+    }
+  }
+
+  #tags-modal {
+    display: none;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--background-color);
+    padding: var(--space-medium) var(--space-small);
+  }
+
+  
+  .modal-header {
+    display: flex;
+    justify-content: flex-end;
+  }
+
 </style>
