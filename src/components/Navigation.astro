@@ -34,15 +34,17 @@ const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
     <button class="close-button">X</button>
   </header>
   <p>tags</p>
-  {
-    tagsElement.map((tag)=> {
-     const  {label, url} = tag
-      
-     return(<li><a href={url}>{label}
-      </a></li>)
-      
-    })
-  }
+  <ul>
+    {
+      tagsElement.map((tag)=> {
+      const  {label, url} = tag
+        
+      return(<li><a href={url}>{label}
+        </a></li>)
+        
+      })
+    }
+  </ul>
 
  </div>
 </nav>
@@ -89,7 +91,7 @@ const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
     font-size: var(--font-size-3);
     padding: 0;
 
-    @media(min-width: 672px) {
+    @media(min-width: 900px) {
       display: none;
     }
   }

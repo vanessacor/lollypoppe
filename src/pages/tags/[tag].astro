@@ -1,6 +1,6 @@
 ---
 import PostCard from '../../components/PostCard.astro';
-import PageLayout from '../../layouts/PageLayout.astro';
+import BlogLayout from '../../layouts/BlogLayout.astro';
 import { getCollection } from "astro:content";
 
 
@@ -16,26 +16,28 @@ const { posts } = Astro.props;
 const filteredPosts = posts.filter((post) => post.data.tags.includes(tag) );
 
 ---
-<PageLayout pageTitle={tag}>
-  <h2>Posts tagged with #{tag}</h2>
-  {
-    filteredPosts
-      .sort(
-        (a, b) => b.data.updateDate.getTime() - a.data.updateDate.getTime()
-      )
-      .map((post) => {
-        const { title, description, updateDate, tags } = post.data;
-        return (
-          <>
-            <PostCard
-              title={title}
-              date={updateDate}
-              description={description}
-              tags={tags}
-              slug={post.slug}
-            />
-          </>
-        );
-      })
-  }
-</PageLayout>
+<BlogLayout pageTitle={tag}>
+  <div>
+    <h2>Posts tagged with #{tag}</h2>
+    {
+      filteredPosts
+        .sort(
+          (a, b) => b.data.updateDate.getTime() - a.data.updateDate.getTime()
+        )
+        .map((post) => {
+          const { title, description, updateDate, tags } = post.data;
+          return (
+            <>
+              <PostCard
+                title={title}
+                date={updateDate}
+                description={description}
+                tags={tags}
+                slug={post.slug}
+              />
+            </>
+          );
+        })
+    }
+  </div>
+</BlogLayout>

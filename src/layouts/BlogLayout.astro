@@ -1,0 +1,85 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import { getTags } from "../helpers/get-tags";
+
+
+const { title } = Astro.props;
+const tags = await getTags()
+
+const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
+---
+
+<PageLayout title={title}>
+  <h2 class="header">Hey there! Welcome to my digital garden 🌱</h2>
+  <div class="page-container">
+    <div class="page-container">
+      <slot/>
+    </div>
+    <div class="side-bar">
+      <section>
+        <p>tags</p>
+        <ul class="tags">
+          {
+            tagsElement.map((tag)=> {
+            const  {label, url} = tag
+              
+            return(<li><a href={url}>#{label}
+              </a></li>)
+              
+            })
+          }
+        </ul>
+      </section>
+      <section>
+        <p>Weekly Reading 📰</p>
+        <ul>
+          <li>
+            <a href="https://www.google.com">
+              How read a nice stuff
+            </a>
+          </li>
+          <li>
+            <a href="https://www.google.com">
+              How read a nice stuff
+            </a>
+          </li>
+          <li>
+            <a href="https://www.google.com">
+              How read a nice stuff
+            </a>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <p>Bedside table 📖</p>
+        <ul>
+          <li>Crime and Punishment by <span>Doooddoo</span></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</PageLayout>
+<style scoped>
+  .header {
+    margin-block-end: var(--space-extra-large);
+  }
+
+  .page-container {
+    display: grid;
+    grid-template-columns: 800px 300px;
+    justify-content: space-between;
+    
+  }
+
+  @media (max-width: 1200px){
+    .side-bar {
+      display: none;
+    }
+  }
+
+  .tags{
+    display: flex;
+    gap: var(--space-small);
+    flex-wrap: wrap;
+  }
+</style>
