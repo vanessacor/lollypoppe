@@ -1,8 +1,26 @@
 ---
 const { tags } = Astro.props;
+function getRandomColor() {
+  const colors = ['secondary-color', 'highligth-color', 'highligth-secondary-color', 'highligth-tertiary-color'];
+  const randomIndex = Math.floor(Math.random() * colors.length);
+  return `var(--${colors[randomIndex]})`;
+}
+
 ---
 
 <ul class="tags">
-  {tags.map((tag: string) => <li class="tag"># {tag}</li>)}
+  {tags.map((tag: string) => 
+  <li class="tag">
+    <span style={{"color": `${getRandomColor()}`}}>
+      #
+    </span> 
+      {tag}
+  </li>)}
 </ul>
-<style scoped></style>
+<style scoped>
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: var(--space-small);
+  }
+</style>

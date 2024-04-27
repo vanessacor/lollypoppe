@@ -1,6 +1,5 @@
 ---
 import TagList from "./TagList.astro";
-import HorizontalLine from "./horizontalLine.astro";
 
 const { title, date, slug, description, tags } = Astro.props;
 
@@ -15,21 +14,43 @@ const postDate = date.toLocaleDateString("en-uk", {
 
 <article class="post-card">
   <header>
-    <h2>
-      <a class="title" href={link}>
+    <h3 class="title">
+      <a  href={link}>
         {title}
       </a>
-    </h2>
-    <time>{postDate}</time>
+    </h3>
+    <time class="date">{postDate}</time>
   </header>
-  <p class="description">{description}</p>
-  <footer>
-    <p>
+  <div class="resume">
+    <p>{description}</p>
+    <span class="">
       <a href={link}>Read more</a>
       <span class="link">&#8594</span>
-    </p>
-    <TagList tags={tags} />
-  </footer>
+    </span>
+  </div>
+  <TagList tags={tags} />
+
 </article>
 
-<style scoped></style>
+<style scoped>
+  .post-card {
+    margin-bottom: var(--space-extra-large);
+  }
+  .resume {
+    margin-bottom: var(--space-small);
+  }
+  .title {
+    margin-bottom: var(--space-small);
+  }
+
+  .date {
+    display: block;
+    margin-bottom: var(--space-medium);
+    color: var(--secondary-color);
+  }
+  .link {
+    margin-bottom: var(--space-medium);
+    color: var(--highligth-color)
+  }
+
+</style>
