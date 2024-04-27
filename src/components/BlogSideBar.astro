@@ -1,5 +1,6 @@
 ---
 import { getTags } from "../helpers/get-tags";
+import TagItem from "./TagItem.astro";
 const tags = await getTags()
 
 const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
@@ -9,13 +10,8 @@ const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
     <p>tags</p>
     <ul class="tags">
       {
-        tagsElement.map((tag)=> {
-        const  {label, url} = tag
-          
-        return(<li><a href={url}>#{label}
-          </a></li>)
-          
-        })
+        tagsElement.map((tag)=> 
+        <TagItem tag={tag}/>)
       }
     </ul>
   </section>

@@ -1,0 +1,17 @@
+---
+const {tag} = Astro.props
+
+function getRandomColor() {
+  const colors = ['secondary-color', 'highligth-color', 'highligth-secondary-color', 'highligth-tertiary-color'];
+  const randomIndex = Math.floor(Math.random() * colors.length);
+  return `var(--${colors[randomIndex]})`;
+}
+---
+<li class="tag">
+  <a href={tag.url}>
+    <span style={{"color": `${getRandomColor()}`}}>
+      #
+    </span> 
+    {tag.label}
+  </a>
+</li>

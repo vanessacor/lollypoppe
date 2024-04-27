@@ -1,21 +1,20 @@
 ---
-const { tags } = Astro.props;
-function getRandomColor() {
-  const colors = ['secondary-color', 'highligth-color', 'highligth-secondary-color', 'highligth-tertiary-color'];
-  const randomIndex = Math.floor(Math.random() * colors.length);
-  return `var(--${colors[randomIndex]})`;
+import TagItem from "./TagItem.astro";
+
+type TagItem = {
+  label: string,
+  url: string
 }
 
+const { tags } = Astro.props;
+
+const mappedTags: TagItem[] = tags.map((tag: string) => ({label: tag, url: `/tags/${tag}`}))
 ---
 
 <ul class="tags">
-  {tags.map((tag: string) => 
-  <li class="tag">
-    <span style={{"color": `${getRandomColor()}`}}>
-      #
-    </span> 
-      {tag}
-  </li>)}
+  {mappedTags.map((tag) => 
+  <TagItem tag={tag}/>
+  )}
 </ul>
 <style scoped>
   .tags {
