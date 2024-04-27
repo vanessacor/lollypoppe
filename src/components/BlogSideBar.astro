@@ -1,0 +1,65 @@
+---
+import { getTags } from "../helpers/get-tags";
+const tags = await getTags()
+
+const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
+---
+<div class="side-bar">
+  <section>
+    <p>tags</p>
+    <ul class="tags">
+      {
+        tagsElement.map((tag)=> {
+        const  {label, url} = tag
+          
+        return(<li><a href={url}>#{label}
+          </a></li>)
+          
+        })
+      }
+    </ul>
+  </section>
+  <section>
+    <p>Weekly Reading 📰</p>
+    <ul>
+      <li>
+        <a href="https://www.google.com">
+          How read a nice stuff
+        </a>
+      </li>
+      <li>
+        <a href="https://www.google.com">
+          How read a nice stuff
+        </a>
+      </li>
+      <li>
+        <a href="https://www.google.com">
+          How read a nice stuff
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <p>Bedside table 📖</p>
+    <ul>
+      <li>Crime and Punishment by <span>Doooddoo</span></li>
+    </ul>
+  </section>
+</div>
+<style scoped>
+  .side-bar {
+    display: none;
+  }
+
+  @media (min-width: 1200px){
+    .side-bar {
+      display: block;
+    }
+  }
+
+  .tags{
+    display: flex;
+    gap: var(--space-small);
+    flex-wrap: wrap;
+  }
+</style>
