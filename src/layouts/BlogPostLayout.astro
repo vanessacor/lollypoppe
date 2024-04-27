@@ -16,17 +16,35 @@ const postDate = updateDate.toLocaleDateString("en-uk", {
 
 <PageLayout>
   <article>
-    <header class="post-header">
-      <h1 class="title">{title}</h1>
+    <header>
+      <h2>{title}</h2>
       <time>
         {postDate}
       </time>
-      <TagList tags={tags} />
     </header>
-    <Markdown>
-      <slot />
-    </Markdown>
+    <TagList tags={tags} />
+    <div class="content">
+      <Markdown>
+        <slot />
+      </Markdown>
+    </div>
   </article>
 </PageLayout>
 
-<style></style>
+<style scoped>
+  header {
+    padding-top: var(--space-);
+    margin-bottom: var(--space-large);
+  }
+  h2 {
+    margin-bottom: var(--space-extra-small);
+  }
+  
+  time {
+    color: var(--highligth-color)
+  }
+
+  .content {
+    padding-top: var(--space-extra-large);
+  }
+</style>

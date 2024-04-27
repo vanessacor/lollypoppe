@@ -8,7 +8,7 @@ const { title } = Astro.props;
 <PageLayout title={title}>
   <h2 class="header">Hey there! Welcome to my digital garden 🌱</h2>
   <div class="page-container">
-    <div class="page-container">
+    <div>
       <slot/>
     </div>
     <BlogSideBar />
@@ -18,13 +18,16 @@ const { title } = Astro.props;
   .header {
     margin-bottom: var(--space-extra-large);
     font-style: italic;
-
   }
   @media (min-width: 1200px){
+    .header {
+      padding-top: var(--space-extra-large);
+      margin-bottom: var(--space-xxl)
+    }
     .page-container {
-    display: grid;
-    grid-template-columns: 800px 300px;
-    justify-content: space-between;
+      display: grid;
+      grid-template-columns: 800px 300px;
+      justify-content: space-between;
     
   }
 
