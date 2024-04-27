@@ -1,0 +1,75 @@
+---
+import NavigationItem from "./NavigationItem.astro";
+import TagsMenu from "./TagsMenu.astro";
+const { pathname } = Astro.url;
+
+const currentUrl = pathname.replace(/^\/|\/$/g, "");
+
+const isActive = (item: string) => {
+  return currentUrl.includes(item)
+}
+
+const navigationItems = [
+  {label: 'Home', href: '/'}, {label: 'About', href: "/about"}, {label: 'Work', href: "/work"}, {label:'Glossary', href:"/glossary"}]
+---
+
+<nav class="nav-items">
+
+  {
+    navigationItems.map((item) => {
+     return <NavigationItem label={item.label} href={item.href} />
+    }) 
+  }
+ <button class="tag-button" class:list={[isActive("tags") ? "active" : "", "link"]}>Tags</button> 
+ <TagsMenu />
+ 
+</nav>
+<script>
+
+  const tagsButton = document.querySelector('.tag-button');
+  if(tagsButton) tagsButton.addEventListener('click', () => {
+    toggleTagsMenu()
+  });
+
+  const closeButton = document.querySelector('.close-button');
+  if(closeButton) closeButton.addEventListener('click', () => {
+    toggleTagsMenu()
+  });
+
+  const toggleTagsMenu = () => {
+    const modal = document.getElementById('tags-modal')
+    if(!modal) return
+
+    modal.style.display === 'block' 
+      ? modal.style.display = 'none' 
+      : modal.style.display = 'block'
+  }
+ 
+</script>
+<style scoped>
+  .nav-items {
+    padding: var(--space-medium) 0;
+    display: flex;
+    gap: var(--space-small)
+  }
+
+  .tag-button {
+    border: none;
+    background-color: transparent;
+    color: var(--accent-color-dark);
+    font-family: var(--text-font);
+    font-size: var(--font-size-3);
+    padding: 0;
+
+    @media(min-width: 1200px) {
+      display: none;
+    }
+  }
+
+  .active {
+    border-bottom: 2px solid var(--highligth-tertiary-color);
+    font-weight: bold;
+  }
+
+
+</style>

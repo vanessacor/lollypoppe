@@ -1,0 +1,24 @@
+---
+const { label, href } = Astro.props;
+const { pathname } = Astro.url;
+
+const isActive = () => {
+  if(label === 'Home') {
+    return pathname.includes('blog') || pathname === "/"
+  } else return pathname === href
+}
+
+---
+<a class:list={[isActive() ? "active" : "", "link"]} href={href}>
+  {label}
+</a>
+
+<style scoped>
+   a {
+    font-size: var(--font-size-3);
+  }
+  .active {
+    border-bottom: 2px solid var(--highligth-tertiary-color);
+    font-weight: bold;
+  }
+</style>

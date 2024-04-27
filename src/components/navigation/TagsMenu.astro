@@ -1,0 +1,43 @@
+---
+import { getTags } from "../../helpers/get-tags";
+const tags = await getTags()
+
+const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
+---
+
+<div id="tags-modal">
+  <header class="modal-header">
+    <button class="close-button">X</button>
+  </header>
+  <p>tags</p>
+  <ul>
+    {
+      tagsElement.map((tag)=> {
+      const  {label, url} = tag
+        
+      return(<li><a href={url}>{label}
+        </a></li>)
+        
+      })
+    }
+  </ul>
+
+ </div>
+ <style scoped>
+   #tags-modal {
+    display: none;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--background-color);
+    padding: var(--space-medium) var(--space-small);
+  }
+
+  
+  .modal-header {
+    display: flex;
+    justify-content: flex-end;
+  }
+ </style>
