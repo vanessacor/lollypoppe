@@ -41,6 +41,7 @@ li {
 }
 
 a {
+  font-size: var(--font-size-3);
   color: var(--accent-color-dark);
   font-family: var(--text-font);
 }

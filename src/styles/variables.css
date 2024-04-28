@@ -23,11 +23,13 @@
   --highligth-secondary-color: #ffd54d;
   --highligth-tertiary-color: #ff4242;
 
+  --screen-size: 1200px; 
+
 }
 
 @media(prefers-color-scheme: light) {
   :root {
-    --background-color: #FAFAF5;
+    --background-color: #e2e2da;
     --primary-font-color: #4B6163;
     --secondary-color: #D83F31;
     --highligth-color: #219C90;

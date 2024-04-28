@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import PageLayout from "./PageLayout.astro";
+import BlogLayout from "./BlogLayout.astro";
 import Markdown from "../components/MarkdownComponent.astro";
 import TagList from "../components/TagList.astro";
 
@@ -14,7 +14,7 @@ const postDate = updateDate.toLocaleDateString("en-uk", {
 });
 ---
 
-<PageLayout>
+<BlogLayout>
   <article>
     <header>
       <h2>{title}</h2>
@@ -29,7 +29,7 @@ const postDate = updateDate.toLocaleDateString("en-uk", {
       </Markdown>
     </div>
   </article>
-</PageLayout>
+</BlogLayout>
 
 <style scoped>
   header {

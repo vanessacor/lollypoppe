@@ -1,16 +1,71 @@
-<ul class="links container">
-  <li>Github</li>
-  <li>email</li>
-  <li>linkedin</li>
-</ul>
+---
+import linkedin from "/assets/icons/linkedin.svg?raw";
+import email from "/assets/icons/email.svg?raw";
+import github from "/assets/icons/github.svg?raw";
+---
 
+<div class="page-footer container">
+  <p id="email-address">This is my email</p>
+  <ul class="links">
+    <li>
+      <a
+        target="_blank"
+        href="https://www.linkedin.com/in/vanessapoppe/"
+        ria-label="linkedin-profile"
+        title="linkedin-profile"
+      >
+        <Fragment set:html={linkedin} class="icons" />
+      </a>
+    </li>
+    <li>
+      <a
+        target="_blank"
+        href="https://github.com/vanessacor"
+        aria-label="github-profile"
+        title="github-profile"
+      >
+        <Fragment set:html={github} aria-hidden="true" focusable="false" />
+      </a>
+    </li>
+    <li>
+      <button class="email-button">
+        <Fragment set:html={email} class="email-icon" />
+      </button>
+    </li>
+  </ul>
+</div>
+<script>
+  function showEmail() {
+    const text = document.getElementById("email-address");
+    if (!text) return;
+    text.style.display === "block"
+      ? (text.style.display = "none")
+      : (text.style.display = "block");
+  }
+  const button = document.querySelector(".email-button");
+
+  button?.addEventListener("click", () => showEmail());
+</script>
 <style scoped>
-
-  .links{
+  .page-footer {
+    margin: 0 auto;
+    padding-top: var(--space-large);
+    padding-bottom: var(--space-large);
+  }
+  .links {
     display: flex;
     justify-content: space-around;
+  }
+  .email-button {
+    border: none;
+    color: var(--primary-font-color);
+    background-color: transparent;
+  }
+
+  #email-address {
+    display: none;
     margin: 0 auto;
-    padding-top: var(--space-medium);
-    padding-bottom: var(--space-medium);
+    margin-bottom: var(--space-small);
+    text-align: center;
   }
 </style>

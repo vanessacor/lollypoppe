@@ -7,7 +7,7 @@ const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
 ---
 <div class="side-bar">
   <section>
-    <p>tags</p>
+    <p>tags 🏷️</p>
     <ul class="tags">
       {
         tagsElement.map((tag)=> 
@@ -38,7 +38,11 @@ const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
   <section>
     <p>Bedside table 📖</p>
     <ul>
-      <li>Crime and Punishment by <span>Doooddoo</span></li>
+      <li>
+        <a href="https://search.worldcat.org/title/1020032679">
+          Crime and Punishment by Fyodor Dostoyevsky 
+        </a>
+      </li>
     </ul>
   </section>
 </div>
@@ -49,13 +53,20 @@ const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
 
   @media (min-width: 1200px){
     .side-bar {
-      display: block;
+      display: flex;
+      flex-direction: column;
+      row-gap: var(--space-large);
     }
+  }
+
+  a:hover {
+    color: var(--highligth-color);
+    font-weight: bold;
   }
 
   .tags{
     display: flex;
-    gap: var(--space-small);
+    column-gap: var(--space-small);
     flex-wrap: wrap;
   }
 </style>
