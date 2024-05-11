@@ -19,17 +19,17 @@ const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
     <p>Weekly Reading 📰</p>
     <ul>
       <li>
-        <a href="https://www.google.com">
+        <a data-external="external" href="https://www.google.com">
           How read a nice stuff
         </a>
       </li>
       <li>
-        <a href="https://www.google.com">
+        <a data-external="external" href="https://www.google.com">
           How read a nice stuff
         </a>
       </li>
       <li>
-        <a href="https://www.google.com">
+        <a data-external="external" href="https://www.google.com">
           How read a nice stuff
         </a>
       </li>
@@ -39,9 +39,11 @@ const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
     <p>Bedside table 📖</p>
     <ul>
       <li>
-        <a href="https://search.worldcat.org/title/1020032679">
-          Crime and Punishment by Fyodor Dostoyevsky 
-        </a>
+        <span >
+          <a data-external="external" href="https://search.worldcat.org/title/1020032679">
+            Crime and Punishment
+          </a>
+        </span>
       </li>
     </ul>
   </section>
@@ -57,11 +59,6 @@ const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
       flex-direction: column;
       row-gap: var(--space-large);
     }
-  }
-
-  a:hover {
-    color: var(--highligth-color);
-    font-weight: bold;
   }
 
   .tags{

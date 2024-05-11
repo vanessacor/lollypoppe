@@ -1,33 +1,36 @@
 ---
 import { getTags } from "../../helpers/get-tags";
-const tags = await getTags()
+const tags = await getTags();
 
-const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
+const tagsElement = tags.map((tag) => ({ label: tag, url: `/tags/${tag}` }));
 ---
 
 <div id="tags-modal">
-  <header class="modal-header">
-    <button class="close-button">X</button>
-  </header>
-  <p>tags</p>
-  <ul>
-    {
-      tagsElement.map((tag)=> {
-      const  {label, url} = tag
-        
-      return(<li><a href={url}>{label}
-        </a></li>)
-        
-      })
-    }
-  </ul>
+  <div class="modal">
+    <header class="modal-header">
+      <h2>tags</h2>
+      <button class="close-button">X</button>
+    </header>
+    <ul>
+      {
+        tagsElement.map((tag) => {
+          const { label, url } = tag;
 
- </div>
- <style scoped>
-   #tags-modal {
+          return (
+            <li>
+              <a href={url}># {label}</a>
+            </li>
+          );
+        })
+      }
+    </ul>
+  </div>
+</div>
+<style scoped>
+  #tags-modal {
     display: none;
     position: absolute;
-    top:0;
+    top: 0;
     bottom: 0;
     left: 0;
     right: 0;
@@ -35,9 +38,30 @@ const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
     padding: var(--space-medium) var(--space-small);
   }
 
-  
+  .modal {
+    padding: var(--space-medium);
+  }
+
+  .close-button {
+    background-color: transparent;
+    color: var(--highligth-tertiary-color);
+    border: none;
+    font-size: var(--font-size-2);
+  }
+
   .modal-header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    margin-bottom: var(--space-large);
   }
- </style>
+
+  ul {
+    display: flex;
+    gap: var(--space-small);
+    flex-wrap: wrap;
+  }
+
+  ul a {
+    color: var(--secondary-color)
+  }
+</style>
