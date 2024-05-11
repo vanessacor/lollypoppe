@@ -2,7 +2,11 @@ import { getCollection } from "astro:content";
 
 type Tags = string[];
 export async function getTags(): Promise<Tags> {
-  const post = await getCollection("blog");
-  const tags = [...new Set(post.map((post) => post.data.tags).flat())];
+  const postlist = (await getCollection("blog")).filter(
+    (post) => !post.data.draft
+  );
+
+  // TODO once the tagsList gets bigger show count
+  const tags = [...new Set(postlist.map((post) => post.data.tags).flat())];
   return tags;
 }
