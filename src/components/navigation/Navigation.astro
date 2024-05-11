@@ -3,65 +3,67 @@ import NavigationItem from "./NavigationItem.astro";
 import TagsMenu from "./TagsMenu.astro";
 const { pathname } = Astro.url;
 
-const currentUrl = pathname.replace(/^\/|\/$/g, "");
+const currentUrl = pathname.replace(/\/$/, '')
 
-const isActive = (item: string) => {
-  return currentUrl.includes(item)
-}
+const isTagsActive = currentUrl === "tags"
 
 const navigationItems = [
-  {label: 'Home', href: '/'}, {label: 'About', href: "/about"}, {label: 'Work', href: "/work"}]
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Work", href: "/work" },
+];
 ---
 
 <nav class="nav-items">
-
   {
     navigationItems.map((item) => {
-     return <NavigationItem label={item.label} href={item.href} />
-    }) 
+      return <NavigationItem label={item.label} href={item.href} />;
+    })
   }
- <button class="tag-button" class:list={[isActive("tags") ? "active" : "", "link"]}>Tags</button> 
- <TagsMenu />
- 
+  <button
+    class="tag-button"
+    class:list={[{active: isTagsActive}, "link"]}>Tags</button
+  >
+  <TagsMenu />
 </nav>
 <script>
+  const tagsButton = document.querySelector(".tag-button");
+  if (tagsButton)
+    tagsButton.addEventListener("click", () => {
+      toggleTagsMenu();
+    });
 
-  const tagsButton = document.querySelector('.tag-button');
-  if(tagsButton) tagsButton.addEventListener('click', () => {
-    toggleTagsMenu()
-  });
-
-  const closeButton = document.querySelector('.close-button');
-  if(closeButton) closeButton.addEventListener('click', () => {
-    toggleTagsMenu()
-  });
+  const closeButton = document.querySelector(".close-button");
+  if (closeButton)
+    closeButton.addEventListener("click", () => {
+      toggleTagsMenu();
+    });
 
   const toggleTagsMenu = () => {
-    const modal = document.getElementById('tags-modal')
-    if(!modal) return
+    const modal = document.getElementById("tags-modal");
+    if (!modal) return;
 
-    modal.style.display === 'block' 
-      ? modal.style.display = 'none' 
-      : modal.style.display = 'block'
-  }
- 
+    modal.style.display === "block"
+      ? (modal.style.display = "none")
+      : (modal.style.display = "block");
+  };
 </script>
 <style scoped>
   .nav-items {
     padding: var(--space-medium) 0;
     display: flex;
-    gap: var(--space-small)
+    gap: var(--space-small);
   }
 
   .tag-button {
     border: none;
     background-color: transparent;
-    color: var(--accent-color-dark);
+    color: var(--highligth-color);
     font-family: var(--text-font);
     font-size: var(--font-size-3);
     padding: 0;
 
-    @media(min-width: 1200px) {
+    @media (min-width: 1200px) {
       display: none;
     }
   }
@@ -70,6 +72,4 @@ const navigationItems = [
     border-bottom: 2px solid var(--highligth-tertiary-color);
     font-weight: bold;
   }
-
-
 </style>

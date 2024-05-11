@@ -2,15 +2,13 @@
 const { label, href } = Astro.props;
 const { pathname } = Astro.url;
 
-const isActive = () => {
-  if(label === 'Home') {
-    return pathname.includes('blog') || pathname === "/"
-  } else return pathname === href
-}
-
+const route = pathname.replace(/\/$/, '')
+const isHome = route.includes('blog') || pathname === href
+const isCurrent = route === href
+const isActive = isHome || isCurrent
 ---
-<a class:list={[isActive() ? "active" : "", "link"]} href={href}>
-  {label}
+<a class:list={[{active: isActive}, "link"]} href={href}>
+  {label} 
 </a>
 
 <style scoped>
