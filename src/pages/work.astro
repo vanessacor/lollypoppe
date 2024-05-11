@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import PageLayout from "../layouts/PageLayout.astro";
 import JobItem from "../components/jobItem.astro";
-import TagList from "../components/TagList.astro";
 
 const jobs = await getCollection("work");
 ---
@@ -17,7 +16,7 @@ const jobs = await getCollection("work");
       <h2>Experience</h2>
       {
         jobs
-          .sort((a, b) => b.data.id - a.data.id)
+          .sort((a, b) => Number(b.data.id) - Number(a.data.id))
           .map((job) => (
             <>
               <JobItem job={job} />
