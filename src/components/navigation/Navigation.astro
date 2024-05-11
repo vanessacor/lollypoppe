@@ -5,7 +5,7 @@ const { pathname } = Astro.url;
 
 const currentUrl = pathname.replace(/\/$/, '')
 
-const isTagsActive = currentUrl === "tags"
+const isTagsActive = currentUrl === "tags" || currentUrl.startsWith("/tags")
 
 const navigationItems = [
   { label: "Home", href: "/" },
