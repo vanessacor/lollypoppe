@@ -9,7 +9,7 @@ const { title } = Astro.props;
   <h2 class="header">Hey there! Welcome to my digital garden 🌱</h2>
   <div class="page-container">
     <div>
-      <slot/>
+      <slot />
     </div>
     <BlogSideBar />
   </div>
@@ -19,18 +19,16 @@ const { title } = Astro.props;
     margin-bottom: var(--space-extra-large);
     font-style: italic;
   }
-  @media (min-width: 1200px){
+  @media (min-width: 950px) {
     .header {
       padding-top: var(--space-extra-large);
-      margin-bottom: var(--space-xxl)
+      margin-bottom: var(--space-xxl);
     }
     .page-container {
       display: grid;
       grid-template-columns: 80% 20%;
       gap: var(--space-xxl);
       justify-content: space-between;
-    
-  }
-
+    }
   }
 </style>

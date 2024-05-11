@@ -14,12 +14,12 @@ const postDate = date.toLocaleDateString("en-uk", {
 
 <article class="post-card">
   <header>
-    <h3 class="title">
-      <a  href={link}>
+    <a href={link}>
+      <h3 class="title">
         {title}
-      </a>
-    </h3>
-    <time class="date">{postDate}</time>
+      </h3>
+      <time class="date">{postDate}</time>
+    </a>
   </header>
   <div class="resume">
     <p>{description}</p>
@@ -29,7 +29,6 @@ const postDate = date.toLocaleDateString("en-uk", {
     </span>
   </div>
   <TagList tags={tags} />
-
 </article>
 
 <style scoped>
@@ -40,7 +39,12 @@ const postDate = date.toLocaleDateString("en-uk", {
     margin-bottom: var(--space-small);
   }
   .title {
-    margin-bottom: var(--space-small);
+    margin-bottom: var(--space-xxs);
+  }
+
+   a {
+    font-style: normal;
+    color: var(--primary-font-color);
   }
 
   .date {
@@ -50,7 +54,6 @@ const postDate = date.toLocaleDateString("en-uk", {
   }
   .link {
     margin-bottom: var(--space-medium);
-    color: var(--highligth-color)
+    color: var(--highligth-color);
   }
-
 </style>
