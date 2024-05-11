@@ -9,7 +9,7 @@ const { job } = Astro.props;
 const { Content } = await job.render();
 ---
 
-<article class="project">
+<article class="job">
   <header>
     <h3 class="title">
       {job.data.company} ({job.data.location})<span>
@@ -24,4 +24,22 @@ const { Content } = await job.render();
   </Markdown>
 </article>
 
-<style></style>
+<style scoped>
+
+  .job {
+    margin-bottom: var(--space-extra-large);
+  }
+  header {
+    margin-bottom: var(--space-medium);
+  }
+  .title {
+    font-weight: bolder;
+    font-style: italic;
+    margin-bottom: var(--space-xxs);
+  }
+  .dates {
+    line-height: 1em;
+    font-size: var(--font-size-4);
+    color: var(--secondary-color);
+  }
+</style>

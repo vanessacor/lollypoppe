@@ -4,97 +4,72 @@ import PageLayout from "../layouts/PageLayout.astro";
 import JobItem from "../components/jobItem.astro";
 import TagList from "../components/TagList.astro";
 
-const stackTags = [
-  "HTML",
-  "CSS",
-  "JavaScript",
-  "Git/GitHub",
-  "Vue.js",
-  "Sass",
-  "Node.js",
-  "Express",
-  "MongoDB",
-  "React",
-  "PHP",
-  "Laravel",
-  "MySql",
-  "TDD",
-  "Clean Code",
-  "CI/CD",
-  "Agile",
-  "SCRUM",
-  "Pair Programming",
-];
-
 const jobs = await getCollection("work");
 ---
 
 <PageLayout title="Work">
-  <!-- <section class="skills">
-    <h2>Skills and Best Practices</h2>
-
-    <TagList tags={stackTags} />
-  </section> -->
-  <section>
-    <h2>Experience</h2>
-    {
-      jobs
-        .sort((a, b) => b.data.id - a.data.id)
-        .map((job) => (
-          <>
-            <JobItem job={job} />
-          </>
-        ))
-    }
-  </section>
-  <section class="education">
-    <h2>Education</h2>
-    <h3>BA (Hons) Clinical Psychology</h3>
-    <p>
-      <a href="http://www.ispa.pt/">Instituto de Psicologia Aplicada</a>
-    </p>
-  </section>
-  <section class="languages">
-    <h2>Languages</h2>
-    <ul>
-      <li>
-        <img
-          src="https://media-vanessapoppe-me.s3-eu-west-1.amazonaws.com/images/portugal-flag-icon-16.png"
-          alt="portuguese flag"
-        />
-        Portuguese - native
-      </li>
-      <li>
-        <img
-          src="https://media-vanessapoppe-me.s3-eu-west-1.amazonaws.com/images/united-kingdom-flag-icon-16.png"
-          alt="british flag"
-        />
-        English - proficient
-      </li>
-      <li>
-        <img
-          src="https://media-vanessapoppe-me.s3-eu-west-1.amazonaws.com/images/spain-flag-icon-16.png"
-          alt="spanish flag"
-        />
-        Spanish - moderate
-      </li>
-    </ul>
-  </section>
+  <div class="content">
+    <section class="values">
+      <h2>My values</h2>
+      <p>💛 Love 🦋 Freedom 🐶 Loyalty</p>
+    </section>
+    <section class="experience">
+      <h2>Experience</h2>
+      {
+        jobs
+          .sort((a, b) => b.data.id - a.data.id)
+          .map((job) => (
+            <>
+              <JobItem job={job} />
+            </>
+          ))
+      }
+    </section>
+    <section class="education">
+      <h2>Education</h2>
+      <h3>BA (Hons) Clinical Psychology</h3>
+      <p>
+        <a data-external="external" href="http://www.ispa.pt/"
+          >Instituto de Psicologia Aplicada</a
+        >
+      </p>
+    </section>
+    <section class="languages">
+      <h2>Languages</h2>
+      <ul>
+        <li>🇵🇹 Portuguese - native</li>
+        <li>🇬🇧 English - proficient</li>
+        <li>🇪🇸 Spanish - moderate</li>
+      </ul>
+    </section>
+  </div>
 </PageLayout>
 <style>
-  section {
-    margin-bottom: var(--space-extra-large);
+  .content {
+    padding-top: var(--space-extra-large);
+    margin-bottom: var(--space-xxl);
+  }
+  @media (min-width: 950px) {
+    .content {
+      padding-top: var(--space-xxl);
+    }
+  }
+  .content section:not(:first-child) {
+    padding-top: var(--space-xxl);
   }
 
   section h2 {
-    margin-bottom: var(--space-small);
+    margin-bottom: var(--space-large);
   }
 
+  .values h2 {
+    margin-bottom: var(--space-medium);
+  }
   .languages ul {
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-medium);
   }
 
-  .languages img {
-    margin-right: 5px;
-  }
 </style>
