@@ -12,7 +12,8 @@ h2 {
 
 h3 {
   font-size: var(--font-size-2);
-  margin-bottom: 10px;
+  font-family: var(--text-font);
+  font-weight: lighter;
 }
 
 h4 {

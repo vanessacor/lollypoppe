@@ -22,6 +22,10 @@ body {
 
 }
 
+a[data-external] {
+  color: var(--highligth-color);
+}
+
 a[data-external]::after {
   display: inline-block;
   margin-left: var(--space-extra-small);
@@ -29,3 +33,9 @@ a[data-external]::after {
   transform: rotate(90deg) translateY(0.1em);
   transition: all 0.1s;
 }
+
+a {
+  color: var(--highligth-color);
+  font-style: italic;
+}
+

@@ -1,11 +1,12 @@
 :root {
 
-  --space-extra-small: 0.5em;
-  --space-small: 1em;
-  --space-medium: 1.5em;
-  --space-large: 2em;
-  --space-extra-large: 3em;
-  --space-xxl: 5em;
+  --space-xxs: 0.3rem;
+  --space-extra-small: 0.5rem;
+  --space-small: 1rem;
+  --space-medium: 1.5rem;
+  --space-large: 2rem;
+  --space-extra-large: 3rem;
+  --space-xxl: 5rem;
   
   --title-font: "Montserrat Variable", sans-serif;
   --text-font: "IBM Plex Mono", monospace;
@@ -31,9 +32,9 @@
   :root {
     --background-color: #e2e2da;
     --primary-font-color: #4B6163;
-    --secondary-color: #D83F31;
+    --secondary-color: #aa7dce;
     --highligth-color: #219C90;
-    --highligth-secondary-color: #f5db30;
+    --highligth-secondary-color: #D83F31;
     --highligth-tertiary-color: #EE9322;
   }
 }
