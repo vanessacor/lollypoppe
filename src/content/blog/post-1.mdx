@@ -1,37 +1,22 @@
 ---
-title: "First Post"
-tags: ["HTML", "CSS", "Git/GitHub"]
-updateDate: "2023/02/24"
-description: "this is code Experiences short bursts of poo-phoria after going to the loo head nudges , stinky cat for pee on walls it smells like breakfast so chase mice. Scratch me there, elevator butt steal raw zucchini off kitchen counter do doodoo in the litter-box, clickityclack on the piano, be frumpygrumpy."
+title: "From React to Astro - Part I"
+tags: ["React", "Astro", "web-development", "learnings"]
+updateDate: "2024/04/09"
+description: "When I realised that I wanted to pursuit a career in web development, I create my website to showcase my work. This was built using react with the content written in Markdown. If you are curious check it out."
 draft: false
 ---
 
-Plan steps for [world domination](http://www.google.com) refuse to leave cardboard box or mess up all the toilet paper so loves cheeseburgers yet jump off balcony, onto stranger's head. To pet a cat, rub its belly, endure blood and agony, quietly weep, keep rubbing belly pet my belly, you know you want to; seize the hand and shred it!
+When I first discovered my passion for web development, I embarked on a journey to create my own website, a platform to showcase my portfolio. At that time I was learning React, and I built a clean and efficient React website, with content written in Markdown. The content is then read by a little npm script that I wrote and it relies on `markdown.it` to handle the markdown to html conversion, it then stores it in a local json file. you can peek at the scripts [here](https://github.com/vanessacor/my-site/tree/master/build). Then with the help of Github actions deploying my site was easy peasy: I would write the content, push the change to GH and then voila, The latest version gracefully updated on my S3 bucket. For the curious peeps, check the repository on [GH](https://github.com/vanessacor/my-site)
 
-![my image](/assets/profile.jpg)
+Fast forward two years, and now working as a software engineer, I felt the urge to revamp my website and incorporate a blog section. Additionally, I wanted to update certain sections to better reflect my current position and growth.
 
-> this is a quote from me
+The dilemma? Stick with what's familiar, or embrace a fresh start? Ultimately, I decided to go with the second option. This meant I needed to choose the right stack for building my new website. One of my requirements was to keep writing the content in Markdown. Now since Markdown compatibility was paramount, it was only natural to explore possibilities within the JamStack ecosystem. These are frameworks I considered:
 
-- [x] Write the press release
-- [ ] Update the website
-- [ ] Contact the media
+- [Next](https://nextjs.org/): A react framework that suport SSG as well Server Side Rendering. React was my first FE framework, I learnt even before my bootcamp. I was curious to see what had change in these 2 years.
+- [Nuxt](https://nuxt.com/): Vue framework and similar to Next it also supports SSG and SSR I've been working with Vue for more than 2 years and this felt a natural choice. But I craved a change from the daily grind.
+- [Eleventy (11y)](https://www.11ty.dev/): is dedicated static site generator that I had breafily played before. It's easy and quick to get it up and run. Fun fact so many popular websites for developers are build using E11y, check them out here.
+- [Astro.js](https://astro.build/): Astro is an open-source framework that allows developers to build websites where content is generated from Markdown files.
 
-- First item
-- Second item
-- Third item
+After careful consideration, I decided to embrace the new kid on the block: Astro.js. Its flexibility in creating components with Vue, React, or even Svelte and the possibility of typing the frontmatter, by defining a collection schema (learn more [here](https://docs.astro.build/en/guides/content-collections/#defining-a-collection-schema)), sealed the deal.
 
-and an ordered list
-
-1. First item
-2. Second item
-3. Third item
-
-```js
-const name = "Vanessa";
-function myFn {
-  const message = `hello dear ${name}`
-  return message
-}
-```
-
-Cats woo cats are cute and let me in let me out let me in let me out let me in let me out who broke this door anyway do i like standing on litter cuz i sits when i have spaces, my cat buddies have no litter i live in luxury cat life. Flee in terror at cucumber
+With this fresh technology, I am excited to embark on this website reconstruction journey.
