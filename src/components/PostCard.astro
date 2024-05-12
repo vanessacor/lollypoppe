@@ -23,10 +23,7 @@ const postDate = date.toLocaleDateString("en-uk", {
   </header>
   <div class="resume">
     <p>{description}</p>
-    <span class="">
-      <a href={link}>Read more</a>
-      <span class="link">&#8594</span>
-    </span>
+    <a href={link} class="link">Read more <span>&#8594</span></a>
   </div>
   <TagList tags={tags} />
 </article>
@@ -42,7 +39,7 @@ const postDate = date.toLocaleDateString("en-uk", {
     margin-bottom: var(--space-xxs);
   }
 
-   a {
+  a {
     font-style: normal;
     color: var(--primary-font-color);
   }
