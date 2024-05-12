@@ -6,9 +6,7 @@ const isBlogRoute = pathname.startsWith("/blog")
 const isHome = href === "/"
 const isActive = href === pathname || isBlogRoute && isHome
 ---
-<a class:list={[{active: isActive}, "link"]} href={href}>
-  {label}
-</a>
+<a class:list={[{active: isActive}, "link"]} href={href}>{label}</a>
 
 <style scoped>
    a {
