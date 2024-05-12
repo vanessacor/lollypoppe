@@ -22,7 +22,7 @@ npm start
 npm run build-preview
 ```
 
-## 🛠️ Tooling
+## 🛠️ Build with
 
 - [Astro 4.5.5](https://astro.build/)
 - [@astrojs/ mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/)
