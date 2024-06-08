@@ -1,46 +1,40 @@
 ---
 import { getTags } from "../helpers/getTags";
 import TagItem from "./TagItem.astro";
-const tags = await getTags()
+const tags = await getTags();
 
-const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
+const tagsElement = tags.map((tag) => ({ label: tag, url: `/tags/${tag}` }));
 ---
+
 <div class="side-bar">
   <section>
     <p>tags 🏷️</p>
     <ul class="tags">
-      {
-        tagsElement.map((tag)=> 
-        <TagItem tag={tag}/>)
-      }
+      {tagsElement.map((tag) => <TagItem tag={tag} />)}
     </ul>
   </section>
   <section>
     <p>Weekly Reading 📰</p>
-    <ul>
+    <ul class="readings">
       <li>
-        <a data-external="external" href="https://www.google.com">
-          How read a nice stuff
-        </a>
-      </li>
-      <li>
-        <a data-external="external" href="https://www.google.com">
-          How read a nice stuff
-        </a>
-      </li>
-      <li>
-        <a data-external="external" href="https://www.google.com">
-          How read a nice stuff
+        <a
+          data-external="external"
+          href="https://www.joshwcomeau.com/react/use-deferred-value/"
+        >
+          Snappy UI Optimization with useDeferredValue
         </a>
       </li>
     </ul>
   </section>
   <section>
     <p>Bedside table 📖</p>
-    <ul>
+    <ul class="readings">
       <li>
-        <span >
-          <a data-external="external" href="https://search.worldcat.org/title/1020032679">
+        <span>
+          <a
+            data-external="external"
+            href="https://search.worldcat.org/title/1020032679"
+          >
             Crime and Punishment
           </a>
         </span>
@@ -53,7 +47,7 @@ const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
     display: none;
   }
 
-  @media (min-width: 1200px){
+  @media (min-width: 1200px) {
     .side-bar {
       display: flex;
       flex-direction: column;
@@ -61,9 +55,18 @@ const tagsElement = tags.map((tag) => ({label: tag, url: `/tags/${tag}`}))
     }
   }
 
-  .tags{
+  .tags {
     display: flex;
     column-gap: var(--space-small);
     flex-wrap: wrap;
+  }
+
+  .readings {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-small);
+  }
+  .readings a {
+    font-size: var(--font-size-4);
   }
 </style>

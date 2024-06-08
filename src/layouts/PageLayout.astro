@@ -4,8 +4,8 @@ import "../styles/reset.css";
 import "../styles/typography.css";
 import "../styles/global.css";
 import Header from "../components/Header.astro";
-import '@fontsource-variable/montserrat';
-import '@fontsource/ibm-plex-mono'
+import "@fontsource-variable/montserrat";
+import "@fontsource/ibm-plex-mono";
 import PageFooter from "../components/PageFooter.astro";
 import Stripes from "../components/Stripes.astro";
 
@@ -27,10 +27,7 @@ const { title } = Astro.props;
       name="description"
       content="Web developer. This is my personal blog, here will learn about me, my work and my projects."
     />
-    <meta
-      name="keywords"
-      content="personal, web development, work"
-    />
+    <meta name="keywords" content="personal, web development, work" />
   </head>
   <body>
     <div class="layout">
@@ -47,14 +44,14 @@ const { title } = Astro.props;
 </html>
 
 <style is:global>
-.layout {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-.main {
-  flex-grow: 1;
-  margin-bottom: var(--space-xxl);
-}
-
+  .layout {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .main {
+    flex-grow: 1;
+    padding-top: var(--space-xxl);
+    margin-bottom: var(--space-xxl);
+  }
 </style>
