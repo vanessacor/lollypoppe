@@ -1,16 +1,7 @@
 ---
-const { tag } = Astro.props;
+import { getRandomColor } from "../helpers/colorGenerator";
 
-function getRandomColor() {
-  const colors = [
-    "secondary-color",
-    "highligth-color",
-    "highligth-secondary-color",
-    "highligth-tertiary-color",
-  ];
-  const randomIndex = Math.floor(Math.random() * colors.length);
-  return `var(--${colors[randomIndex]})`;
-}
+const { tag } = Astro.props;
 ---
 
 <li class="tag">
