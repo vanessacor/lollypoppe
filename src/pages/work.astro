@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import PageLayout from "../layouts/PageLayout.astro";
-import JobItem from "../components/jobItem.astro";
+import JobItem from "../components/JobItem.astro";
 
 const jobs = await getCollection("work");
 ---
@@ -45,7 +45,8 @@ const jobs = await getCollection("work");
 </PageLayout>
 <style>
   .content {
-    padding-top: var(--space-extra-large);
+    padding-top: var(--space-extra-large);  <footer></footer>
+
     margin-bottom: var(--space-xxl);
   }
   @media (min-width: 950px) {
@@ -58,7 +59,7 @@ const jobs = await getCollection("work");
   }
 
   section h2 {
-    margin-bottom: var(--space-large);
+    margin-bottom: var(--space-extra-large);
   }
 
   .values h2 {
@@ -70,5 +71,4 @@ const jobs = await getCollection("work");
     flex-wrap: wrap;
     gap: var(--space-medium);
   }
-
 </style>

@@ -1,0 +1,16 @@
+---
+import { getRandomColor } from "../helpers/colorGenerator";
+const { tag } = Astro.props;
+---
+
+<li class="tag">
+  <span style={{ color: `${getRandomColor()}` }}> # </span>
+  <span class="text"> {tag} </span>
+</li>
+
+<style scoped>
+  .tag span {
+    font-style: italic;
+    font-size: var(--font-size-4);
+  }
+</style>

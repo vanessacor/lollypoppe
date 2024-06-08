@@ -1,11 +1,14 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import Markdown from "./MarkdownComponent.astro";
+import TagList from "./TagList.astro";
+import JobTag from "./JobTag.astro";
 interface Props {
   job: CollectionEntry<"work">;
 }
 
 const { job } = Astro.props;
+const tags = job.data.skills;
 const { Content } = await job.render();
 ---
 
@@ -17,6 +20,9 @@ const { Content } = await job.render();
       >
     </h3>
     <p class="dates">{job.data.dates}</p>
+    <ul>
+      {tags && tags.map((tag) => <JobTag tag={tag} />)}
+    </ul>
   </header>
 
   <Markdown>
@@ -25,7 +31,6 @@ const { Content } = await job.render();
 </article>
 
 <style scoped>
-
   .job {
     margin-bottom: var(--space-extra-large);
   }
@@ -34,12 +39,18 @@ const { Content } = await job.render();
   }
   .title {
     font-weight: bolder;
-    font-style: italic;
     margin-bottom: var(--space-xxs);
   }
   .dates {
     line-height: 1em;
     font-size: var(--font-size-4);
+    font-weight: bolder;
     color: var(--secondary-color);
+    margin-bottom: var(--space-small);
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-medium);
   }
 </style>
