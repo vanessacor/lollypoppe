@@ -25,8 +25,7 @@ export const workCollection = defineCollection({
     company: z.string(),
     jobTitle: z.string(),
     location: z.string(),
-    techSkills: z.array(z.string()).optional(),
-    softSkills: z.array(z.string()).optional(),
+    skills: z.array(z.string()),
     dates: z.string(),
   }),
 });
