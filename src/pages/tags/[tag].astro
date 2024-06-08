@@ -1,21 +1,22 @@
 ---
-import PostCard from '../../components/PostCard.astro';
-import BlogLayout from '../../layouts/BlogLayout.astro';
+import PostCard from "../../components/blog/PostCard.astro";
+import BlogLayout from "../../layouts/BlogLayout.astro";
 import { getCollection } from "astro:content";
-
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
-  const tags = [...new Set(posts.map((post) => post.data.tags).flat())]
-  return tags.map((tag)=> ({ params: { tag: String(tag) }, props: { posts }}))
+  const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
+  return tags.map((tag) => ({
+    params: { tag: String(tag) },
+    props: { posts },
+  }));
 }
-
 
 const { tag } = Astro.params;
 const { posts } = Astro.props;
-const filteredPosts = posts.filter((post) => post.data.tags.includes(tag) );
-
+const filteredPosts = posts.filter((post) => post.data.tags.includes(tag));
 ---
+
 <BlogLayout pageTitle={tag}>
   <div>
     <h2>#{tag}</h2>

@@ -1,34 +1,33 @@
 ---
 import BlogLayout from "../layouts/BlogLayout.astro";
 import { getCollection } from "astro:content";
-import PostCard from "../components/PostCard.astro";
+import PostCard from "../components/blog/PostCard.astro";
 
 const postList = await getCollection("blog");
 const blogPostList = postList.filter((post) => !post.data.draft);
-
 ---
 
 <BlogLayout title="Blog">
-    <div>
-      {
-        blogPostList
-          .sort(
-            (a, b) => b.data.updateDate.getTime() - a.data.updateDate.getTime()
-          )
-          .map((post) => {
-            const { title, description, updateDate, tags } = post.data;
-            return (
-              <>
-                <PostCard
-                  title={title}
-                  date={updateDate}
-                  description={description}
-                  tags={tags}
-                  slug={post.slug}
-                />
-              </>
-            );
-          })
-      }
-    </div>
+  <div>
+    {
+      blogPostList
+        .sort(
+          (a, b) => b.data.updateDate.getTime() - a.data.updateDate.getTime()
+        )
+        .map((post) => {
+          const { title, description, updateDate, tags } = post.data;
+          return (
+            <>
+              <PostCard
+                title={title}
+                date={updateDate}
+                description={description}
+                tags={tags}
+                slug={post.slug}
+              />
+            </>
+          );
+        })
+    }
+  </div>
 </BlogLayout>

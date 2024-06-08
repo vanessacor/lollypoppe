@@ -2,7 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import BlogLayout from "./BlogLayout.astro";
 import Markdown from "../components/MarkdownComponent.astro";
-import TagList from "../components/TagList.astro";
+import TagList from "../components/blog/TagList.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 const { title, updateDate, tags } = Astro.props;
@@ -38,9 +38,9 @@ const postDate = updateDate.toLocaleDateString("en-uk", {
   h2 {
     margin-bottom: var(--space-extra-small);
   }
-  
+
   time {
-    color: var(--highligth-color)
+    color: var(--highligth-color);
   }
 
   .content {

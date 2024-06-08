@@ -2,19 +2,20 @@
 import TagItem from "./TagItem.astro";
 
 type TagItem = {
-  label: string,
-  url: string
-}
+  label: string;
+  url: string;
+};
 
 const { tags } = Astro.props;
 
-const mappedTags: TagItem[] = tags.map((tag: string) => ({label: tag, url: `/tags/${tag}`}))
+const mappedTags: TagItem[] = tags.map((tag: string) => ({
+  label: tag,
+  url: `/tags/${tag}`,
+}));
 ---
 
 <ul class="tags">
-  {mappedTags.map((tag) => 
-  <TagItem tag={tag}/>
-  )}
+  {mappedTags.map((tag) => <TagItem tag={tag} />)}
 </ul>
 <style scoped>
   .tags {
