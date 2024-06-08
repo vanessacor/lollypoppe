@@ -1,5 +1,5 @@
 ---
-import { getTags } from "../../helpers/get-tags";
+import { getTags } from "../../helpers/getTags";
 const tags = await getTags();
 
 const tagsElement = tags.map((tag) => ({ label: tag, url: `/tags/${tag}` }));
@@ -63,6 +63,6 @@ const tagsElement = tags.map((tag) => ({ label: tag, url: `/tags/${tag}` }));
   }
 
   ul a {
-    color: var(--secondary-color)
+    color: var(--secondary-color);
   }
 </style>
