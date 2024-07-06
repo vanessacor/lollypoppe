@@ -1,0 +1,3 @@
+{
+  "*.{ts, tsx, astro, mdx}": ["eslint --fix"]
+}
