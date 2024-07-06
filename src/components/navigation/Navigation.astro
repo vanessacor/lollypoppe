@@ -1,11 +1,11 @@
 ---
 import NavigationItem from "./NavigationItem.astro";
-import TagsMenu from "./TagsMenu.astro";
+import { TagButton } from "./TagButton";
+
 const { pathname } = Astro.url;
 
-const currentUrl = pathname.replace(/\/$/, '')
-
-const isTagsActive = currentUrl === "tags" || currentUrl.startsWith("/tags")
+const currentUrl = pathname.replace(/\/$/, "");
+const isTagsActive = currentUrl === "tags" || currentUrl.startsWith("/tags");
 
 const navigationItems = [
   { label: "Home", href: "/" },
@@ -20,56 +20,13 @@ const navigationItems = [
       return <NavigationItem label={item.label} href={item.href} />;
     })
   }
-  <button
-    class="tag-button"
-    class:list={[{active: isTagsActive}, "link"]}>Tags</button
-  >
-  <TagsMenu />
+  <TagButton isActive={isTagsActive} client:visible />
 </nav>
-<script>
-  const tagsButton = document.querySelector(".tag-button");
-  if (tagsButton)
-    tagsButton.addEventListener("click", () => {
-      toggleTagsMenu();
-    });
 
-  const closeButton = document.querySelector(".close-button");
-  if (closeButton)
-    closeButton.addEventListener("click", () => {
-      toggleTagsMenu();
-    });
-
-  const toggleTagsMenu = () => {
-    const modal = document.getElementById("tags-modal");
-    if (!modal) return;
-
-    modal.style.display === "block"
-      ? (modal.style.display = "none")
-      : (modal.style.display = "block");
-  };
-</script>
 <style scoped>
   .nav-items {
     padding: var(--space-medium) 0;
     display: flex;
     gap: var(--space-small);
-  }
-
-  .tag-button {
-    border: none;
-    background-color: transparent;
-    color: var(--highligth-color);
-    font-family: var(--text-font);
-    font-size: var(--font-size-3);
-    padding: 0;
-
-    @media (min-width: 1200px) {
-      display: none;
-    }
-  }
-
-  .active {
-    border-bottom: 2px solid var(--highligth-tertiary-color);
-    font-weight: bold;
   }
 </style>
