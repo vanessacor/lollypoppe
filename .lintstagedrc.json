@@ -1,3 +1,0 @@
-{
-  "*.{ts, astro, mdx}": ["eslint --ignore-path .gitignore --fix"]
-}
