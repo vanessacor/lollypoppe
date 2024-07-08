@@ -1,10 +1,12 @@
 export function getRandomColor() {
   const colors = [
-    "secondary-color",
-    "highligth-color",
-    "highligth-secondary-color",
-    "highligth-tertiary-color",
+    "#66fcf1",
+    "#ffd54d",
+    "#ff4242",
+    "#aa7dce",
+    "#D83F31",
+    "#EE9322",
   ];
   const randomIndex = Math.floor(Math.random() * colors.length);
-  return `var(--${colors[randomIndex]})`;
+  return `${colors[randomIndex]}`;
 }

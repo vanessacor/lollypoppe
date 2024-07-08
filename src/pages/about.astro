@@ -5,9 +5,14 @@ import PageLayout from "../layouts/PageLayout.astro";
 <PageLayout title="About">
   <h2 class="header">Yellow Friends 👋</h2>
   <section class="content">
-    <p>If you want to know more my career, you can find it <a href="/work/">here</a></p>
     <p>
-      I'm Vanessa, and you've just stepped into my digital garden, a cozy corner of the web where I sow seeds of thoughts, nurture my learnings, and showcase my pet projects🐈.
+      If you want to know more my career, you can find it <a href="/work/"
+        >here</a>
+    </p>
+    <p>
+      I'm Vanessa, and you've just stepped into my digital garden, a cozy corner
+      of the web where I sow seeds of thoughts, nurture my learnings, and
+      showcase my pet projects🐈.
     </p>
     <p>
       Here I have the freedom to express myself - It's important to note that
@@ -20,30 +25,31 @@ import PageLayout from "../layouts/PageLayout.astro";
     <p>
       I believe in finding joy in the little things, so you'll also find me
       writing about the things that bring a smile to my face. From the sports I
-      love - skateboarding, surfing, tennis - to books,food and places and other pleasure of life.
-      Ocassionally you might also find some introspections notes about life,
-      work and the world around me.
+      love - skateboarding, surfing, tennis - to books,food and places and other
+      pleasure of life. Ocassionally you might also find some introspections
+      notes about life, work and the world around me.
     </p>
     <p>
-      It's a delightful blend of the technical and the personal because, let's face it, life is all about finding that sweet spot of balance.
-    <img src="/assets/skate.jpg"/>
+      It's a delightful blend of the technical and the personal because, let's
+      face it, life is all about finding that sweet spot of balance.
+      <img src="/assets/skate.jpg" />
+    </p>
   </section>
-</PageLayout>
 
-<style scoped>
-
-  .header {
-    padding-top: var(--space-extra-large);
-    margin-bottom: var(--space-extra-large);
-  }
-
-  @media (min-width: 950px) {
+  <style scoped>
     .header {
-      padding-top: var(--space-xxl);
+      padding-top: var(--space-extra-large);
+      margin-bottom: var(--space-extra-large);
     }
-  }
-  
-  p {
-    margin-block-end: var(--space-small);
-  }
-</style>
+
+    @media (min-width: 950px) {
+      .header {
+        padding-top: var(--space-xxl);
+      }
+    }
+
+    p {
+      margin-block-end: var(--space-small);
+    }
+  </style>
+</PageLayout>

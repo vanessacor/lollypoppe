@@ -1,0 +1,33 @@
+<div class="markdown">
+  <slot />
+</div>
+<style is:global>
+  .markdown p {
+    margin-bottom: var(--space-medium);
+    line-height: 1.8em;
+  }
+
+  .markdown a {
+    color: var(--highligth-color);
+  }
+
+  .markdown ul {
+    margin-left: var(--space-small);
+    margin-bottom: var(--space-medium);
+    line-height: 1.8em;
+    font-size: var(--font-size-3);
+    list-style-image: url("/assets/sun.svg");
+  }
+
+  .markdown ol {
+    margin-bottom: var(--space-medium);
+    line-height: 1.8em;
+  }
+  .astro-code {
+    padding: var(--space-extra-small);
+  }
+  .astro-code span {
+    font-size: 0.9em;
+    line-height: 1;
+  }
+</style>
