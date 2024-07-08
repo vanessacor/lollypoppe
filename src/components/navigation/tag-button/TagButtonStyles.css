@@ -1,0 +1,18 @@
+
+.tag-button {
+  border: none;
+  background-color: transparent;
+  color: var(--highligth-color);
+  font-family: var(--text-font);
+  font-size: var(--font-size-3);
+  padding: 0;
+
+  @media (min-width: 900px) {
+    display: none;
+  }
+}
+
+.active {
+  border-bottom: 2px solid var(--highligth-tertiary-color);
+  font-weight: bold;
+}

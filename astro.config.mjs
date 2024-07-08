@@ -4,15 +4,19 @@ import sitemap from "@astrojs/sitemap";
 import { externalLinks } from "./src/integration/rehype/externalLinks";
 import solidJs from "@astrojs/solid-js";
 
+import expressiveCode from "astro-expressive-code";
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [mdx(), sitemap(), solidJs()],
+  integrations: [
+    expressiveCode({
+      themes: ["one-dark-pro"],
+    }),
+    mdx(),
+    sitemap(),
+    solidJs(),
+  ],
   markdown: {
     rehypePlugins: [externalLinks],
-    shikiConfig: {
-      theme: "rose-pine-dawn",
-      langs: ["js", "ts", "html", "bash", "json"],
-      wrap: true
-    }
-  }
+  },
 });
