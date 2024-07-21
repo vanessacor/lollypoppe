@@ -2,7 +2,7 @@ import eslintPluginAstro from "eslint-plugin-astro";
 export default [
   ...eslintPluginAstro.configs.recommended,
   {
-    ignores: ["node_modules", "dist", "**/types.d.ts"],
+    ignores: ["node_modules/", "dist/**", "**/types.d.ts"],
     rules: {
       "no-unused-vars": "error",
       eqeqeq: "error",
