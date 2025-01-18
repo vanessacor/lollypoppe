@@ -22,6 +22,6 @@ jobs:
       - name: Build application
         run: npm run build
       - name: Deploy to S3
-        run: aws s3 sync dist/ s3://vanessapoppe.me --acl public-read
+        run: aws s3 sync --delete dist/ s3://vanessapoppe-me-prod
       - name: Create CloudFront invalidation
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.DISTRIBUTION_ID }} --paths "/*"
