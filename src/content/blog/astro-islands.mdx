@@ -1,0 +1,124 @@
+---
+title: "Using Astro islands"
+tags: ["Astro", "web-development", "learnings"]
+updateDate: "2024/07/06"
+description: "Astro.js is gaining significant attention in the web development community for its unique approach to building performant, flexible web applications."
+draft: false
+---
+
+Astro.js is gaining significant attention in the web development community for its unique approach to building performant, flexible web applications.
+
+One of the benefits of using Astro is that no JavaScript is shipped to the client by default. This makes it perfect for websites with little to no interactivity. For example, you can create your content in Markdown, which Astro transforms into HTML during build time, resulting in a static site with no JS. Perfect, right? But what if you need some interactivity, like a modal to show tags on mobile devices? This requires JavaScript. In this post, I'll explore different ways to add functionality in an Astro project. Though it's just a button and its functionality, it provides a great opportunity to dive into SSR, SSG, and CSR, and understand the different approaches.
+
+**Client-Side Rendering (CSR)**
+
+CSR renders pages on the client side using JavaScript, creating dynamic and interactive web applications. The advantages include reduced server load and greater interactivity. However, CSR can result in longer loading times and poor SEO. It is best suited for highly dynamic websites.
+
+**Server-Side Rendering (SSR)**
+
+SSR is a technique where webpages are rendered on the server and sent to the client as fully-formed HTML. The advantages include faster initial loading times and improved SEO, as search engines can easily crawl and index the complete HTML content. This approach also benefits users with poor internet connections by quickly displaying the page. However, it can result in higher server costs and increased development complexity, especially for high-traffic applications.
+
+**Static Site Generation (SSG)**
+
+In the early days of the internet, all pages were static, meaning users could only consume content without interaction. As the internet evolved, more interactivity required more complex code and optimization, leading to the rise of front-end frameworks. SSG generates webpages at build time, resulting in a complete HTML document sent to the client. This approach is excellent for SEO and is typically used for content-heavy websites like blogs and news sites. However, it may not be suitable for applications requiring heavy interactivity.
+
+**The Concept of Islands Architecture**
+
+Island architecture is a component-based architecture that combines static and dynamic components. Static components are non-interactive, while dynamic components are interactive. This pattern optimizes performance by treating different parts of a webpage as independent islands. Each island can be built, loaded, and rendered separately, allowing for more efficient resource use and improved user experience.
+
+The term "component islands" was first introduced by Katie Sylor-Miller and later expanded by Jason Miller, the creator of Preact. Astro applications are typically generated with zero JavaScript. However, for interactivity, Astro allows you to add JavaScript in several ways:
+
+- Adding a Script Tag: You can add a script tag and manipulate the DOM directly.
+- Using Framework Components: Astro allows you to create components using popular frameworks like React, Vue, or Svelte. These interactive components are loaded independently with their dependencies.
+
+How It Works: Let's take the example of mobile menu on this website. To make it interactive, I could add a JavaScript script directly to the component. When the page loads, this script will be embedded in the HTML document. Alternatively, I could use a framework like React. Then Astro provides a way to hydrate the component on the client-side: transforming static HTML into a interactive component. Astro also lets you specify when hydration should occur using client directives.
+
+_Hydration Process_:
+
+1. Initial Load: The pre-rendered static HTML is loaded by the browser, providing a fast initial render.
+2. Component Activation: Once the specified hydration trigger occurs, the corresponding JavaScript is fetched.
+3. Reconciliation: The framework reconciles the static HTML with the component, making it interactive without re-rendering the entire component from scratch.
+
+This website has little interactions and only on mobile screens. Having the tags menu on the side wouldn't work for mobile screens so instead I create a simple menu. The button appears next to the navigation links and when clicked a modal covers the screen showing the list of tags. The first iteraction this functionality was build using plain Javascript/typescript to manipulate the DOM. But I wanted to use [Solid.js](https://www.solidjs.com/) framework and build the same functionality using UI components and take advantge of this island archicture: My components only need to be hydrate on mobile screens. So how did I do it? Quite easy just need to follow Astro documentation :smile:
+
+To use Solid.js we need to install it. Running this command will install and take care of the integration setup. See [docs](https://docs.astro.build/en/guides/integrations-guide/solid-js/)
+
+```bash
+  npx astro add solid
+```
+
+<br />
+Now we need to transform my Astro components into Solid components. I decided to
+create 2 components: `TagButton` and `TagsMenu`.
+
+```tsx title="TagButton.tsx"
+export const TagButton: Component<Props> = (props) => {
+  const { isActive } = props;
+
+  const [isMenuOpen, setMenuOpen] = createSignal(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen());
+  };
+
+  return (
+    <>
+      <button
+        class="tag-button"
+        classList={{ ["active"]: isActive }}
+        onClick={toggleMenu}
+      >
+        Tags
+      </button>
+      <Show when={isMenuOpen()}>
+        <TagsMenu close={toggleMenu} />
+      </Show>
+    </>
+  );
+};
+```
+
+<br />
+
+```tsx title="TagsMenu"
+export const TagsMenu: Component<Props> = (props) => {
+  return (
+    <>
+      <div id="tags-modal">
+        <div class="modal">
+          <header class="modal-header">
+            <h2>Tags</h2>
+            <button onClick={props.close} class="close-button">
+              X
+            </button>
+          </header>
+          <ul class="list">
+            {tagsElement.map((tag) => {
+              const { label, url } = tag;
+
+              return (
+                <li>
+                  <a href={url}># {label}</a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+    </>
+  );
+};
+```
+
+<br />
+
+Lastly I integrated the `TagButton` Component in Navigation
+
+```astro title="Navigation.astro"
+...
+<TagButton isActive={isTagsActive} client:visible />
+```
+
+With this setup, the Solid.js components are hydrated only when the user is on a mobile screen.
+
+Using Astro.js and the islands architecture, I create a highly optimized and interactive web applications with minimal JavaScript. Of course for this simple blog the benefits are small and the approach can been as a overkill. I just want to explore the concept and play with it.

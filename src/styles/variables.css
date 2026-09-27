@@ -1,5 +1,4 @@
 :root {
-
   --space-xxs: 0.3rem;
   --space-extra-small: 0.5rem;
   --space-small: 1rem;
@@ -7,7 +6,7 @@
   --space-large: 2rem;
   --space-extra-large: 3rem;
   --space-xxl: 5rem;
-  
+
   --title-font: "Montserrat Variable", sans-serif;
   --text-font: "IBM Plex Mono", monospace;
 
@@ -15,26 +14,25 @@
   --font-size-1: clamp(1.5rem, 4vw, 1.64rem);
   --font-size-2: clamp(1.25rem, 4vw, 1.5rem);
   --font-size-3: clamp(1rem, 4vw, 1.25rem);
-  --font-size-4: clamp(.75rem, 4vw, 1rem);
+  --font-size-4: clamp(0.75rem, 4vw, 1rem);
 
-  --background-color: #4B6163;
-  --primary-font-color: #FAFAF5;
+  --background-color: #4b6163;
+  --primary-font-color: #fafaf5;
   --secondary-color: #66fcf1;
   --highligth-color: #faed26;
   --highligth-secondary-color: #ffd54d;
   --highligth-tertiary-color: #ff4242;
 
-  --screen-size: 1200px; 
-
+  --screen-size: 1200px;
 }
 
-@media(prefers-color-scheme: light) {
+@media (prefers-color-scheme: light) {
   :root {
     --background-color: #e2e2da;
-    --primary-font-color: #4B6163;
+    --primary-font-color: #4b6163;
     --secondary-color: #aa7dce;
-    --highligth-color: #219C90;
-    --highligth-secondary-color: #D83F31;
-    --highligth-tertiary-color: #EE9322;
+    --highligth-color: #219c90;
+    --highligth-secondary-color: #d83f31;
+    --highligth-tertiary-color: #ee9322;
   }
 }
