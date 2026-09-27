@@ -41,7 +41,7 @@ export function externalLinks(): RemarkPlugin {
         const label = toString(node);
         const isAbsolute = /^[a-z]+:/.test(url) || url.startsWith("//");
         if (isAbsolute) {
-          node.properties.rel = "nooener";
+          node.properties.rel = "noopener";
           node.properties["data-external"] = "";
           links.external.push({ url, label });
         } else {

@@ -4,7 +4,7 @@ import BlogLayout from "../../layouts/BlogLayout.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("blog", ({ data }) => !data.draft);
   const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
   return tags.map((tag) => ({
     params: { tag: String(tag) },
