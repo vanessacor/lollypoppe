@@ -5,6 +5,7 @@ import "./TagButtonStyles.css";
 
 type Props = {
   isActive: boolean;
+  tags: string[];
 };
 
 export const TagButton: Component<Props> = (props) => {
@@ -26,7 +27,7 @@ export const TagButton: Component<Props> = (props) => {
         Tags
       </button>
       <Show when={isMenuOpen()}>
-        <TagsMenu close={toggleMenu} />
+        <TagsMenu tags={props.tags} close={toggleMenu} />
       </Show>
     </>
   );

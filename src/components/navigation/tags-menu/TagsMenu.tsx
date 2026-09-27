@@ -1,14 +1,13 @@
 import type { Component } from "solid-js";
-import { getTags } from "../../../helpers/getTags";
 import "./TagsMenuStyles.css";
 
-const tags = await getTags();
-const tagsElement = tags.map((tag) => ({ label: tag, url: `/tags/${tag}` }));
-
 type Props = {
+  tags: string[];
   close: () => void;
 };
 export const TagsMenu: Component<Props> = (props) => {
+  const tagsElement = props.tags.map((tag) => ({ label: tag, url: `/tags/${tag}` }));
+
   return (
     <>
       <div id="tags-modal">

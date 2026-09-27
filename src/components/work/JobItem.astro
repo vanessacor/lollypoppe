@@ -1,5 +1,5 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import { render, type CollectionEntry } from "astro:content";
 import Markdown from "../markdown/MarkdownComponent.astro";
 import JobTag from "./JobTag.astro";
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 
 const { job } = Astro.props;
 const tags = job.data.skills;
-const { Content } = await job.render();
+const { Content } = await render(job);
 ---
 
 <article class="job">

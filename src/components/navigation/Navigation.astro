@@ -1,6 +1,9 @@
 ---
 import NavigationItem from "./NavigationItem.astro";
 import { TagButton } from "./tag-button/TagButton.tsx";
+import { getTags } from "../../helpers/getTags";
+
+const tags = await getTags();
 
 const { pathname } = Astro.url;
 
@@ -20,7 +23,7 @@ const navigationItems = [
       return <NavigationItem label={item.label} href={item.href} />;
     })
   }
-  <TagButton isActive={isTagsActive} client:visible />
+  <TagButton isActive={isTagsActive} tags={tags} client:visible />
 </nav>
 
 <style scoped>
